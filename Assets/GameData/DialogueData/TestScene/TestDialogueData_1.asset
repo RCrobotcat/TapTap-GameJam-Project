@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc1d7a723b6a41428f4610b5cc4de16, type: 3}
+  m_Name: TestDialogueData_1
+  m_EditorClassIdentifier: 
+  dialoguePieces:
+  - ID: Piece01
+    image: {fileID: 21300000, guid: a9aed320465fe5349bb08d7488941c41, type: 3}
+    text: Hello, I'm cube blue.
+    dialogueOption:
+    - text: Hello!
+      targetID: Piece02
+      takeQuest: 0
+      followPlayer: 0
+    - text: (Go away)
+      targetID: 
+      takeQuest: 0
+      followPlayer: 0
+  - ID: Piece02
+    image: {fileID: 21300000, guid: a9aed320465fe5349bb08d7488941c41, type: 3}
+    text: This is a test dialogue!
+    dialogueOption:
+    - text: OK!
+      targetID: 
+      takeQuest: 0
+      followPlayer: 0
