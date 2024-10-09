@@ -11,8 +11,8 @@ public class ItemPickUp : MonoBehaviour
             InventoryManager.Instance.inventoryData.AddItem(itemData, itemData.itemAmount);
             InventoryManager.Instance.inventoryUI.RefreshUI();
 
-            /*if (QuestManager.Instance.IsInitialized)
-                QuestManager.Instance.UpdateQuestProgress(itemData.itemName, itemData.itemAmount);*/
+            if (QuestManager.Instance.IsInitialized)
+                QuestManager.Instance.UpdateQuestProgress(itemData.itemName, itemData.itemAmount);
 
             Destroy(gameObject);
         }

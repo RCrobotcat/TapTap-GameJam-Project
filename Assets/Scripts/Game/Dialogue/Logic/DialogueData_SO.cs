@@ -28,7 +28,7 @@ public class DialogueData_SO : ScriptableObject
     }
 #endif
 
-    /*public QuestData_SO GetQuest(string questName)
+    public QuestData_SO GetQuest(string questName)
     {
         QuestData_SO currentQuest = null;
         foreach (var piece in dialoguePieces)
@@ -44,5 +44,5 @@ public class DialogueData_SO : ScriptableObject
         }
 
         return currentQuest;
-    }*/
+    }
 }

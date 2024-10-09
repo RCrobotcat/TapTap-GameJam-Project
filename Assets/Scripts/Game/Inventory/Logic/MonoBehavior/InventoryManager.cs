@@ -140,7 +140,7 @@ public class InventoryManager : Singleton<InventoryManager>
     #endregion
 
     #region Check if the quest item already exists in the inventory, if so, update the quest progress
-    /*public void CheckQuestItemInBag(string questItemName)
+    public void CheckQuestItemInBag(string questItemName)
     {
         foreach (var item in inventoryData.items)
         {
@@ -159,7 +159,7 @@ public class InventoryManager : Singleton<InventoryManager>
                     QuestManager.Instance.UpdateQuestProgress(questItemName, item.amount);
             }
         }
-    }*/
+    }
     #endregion
 
     #region Check if the quest item is in the inventory or action slot

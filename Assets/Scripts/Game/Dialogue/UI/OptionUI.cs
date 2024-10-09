@@ -29,7 +29,7 @@ public class OptionUI : MonoBehaviour
 
     public void OnOptionClicked()
     {
-        /*if (currentPiece.questData != null)
+        if (currentPiece.questData != null)
         {
             var newTask = new QuestManager.QuestTask { questData = Instantiate(currentPiece.questData) };
             if (takeQuest)
@@ -54,7 +54,7 @@ public class OptionUI : MonoBehaviour
                         InventoryManager.Instance.CheckQuestItemInBag(reqName);
                 }
             }
-        }*/
+        }
 
         /*if (followPlayer)
         {

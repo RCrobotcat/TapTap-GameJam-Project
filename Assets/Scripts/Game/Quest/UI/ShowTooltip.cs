@@ -1,0 +1,23 @@
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class ShowTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+    ItemUI currentItemUI;
+
+    void Awake()
+    {
+        currentItemUI = GetComponent<ItemUI>();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        QuestUI.Instance.itemTooltip.gameObject.SetActive(true);
+        QuestUI.Instance.itemTooltip.GetComponent<ItemTooptip>().SetUpTooltip(currentItemUI.currentItemData);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        QuestUI.Instance.itemTooltip.gameObject.SetActive(false);
+    }
+}
