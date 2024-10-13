@@ -4,12 +4,20 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     NavMeshAgent agent;
+    Animator animator;
     float horizontal, vertical;
     float stopDistance;
+
+    SpriteRenderer playerSprite;
 
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
+        animator = GetComponent<Animator>();
+        playerSprite = GetComponent<SpriteRenderer>();
 
         stopDistance = agent.stoppingDistance;
     }
@@ -24,6 +32,19 @@ public class PlayerController : MonoBehaviour
         {
             Vector3 CamRelativeMove = ConvertToCameraSpace(inputDirection);
             MovePlayer(CamRelativeMove);
+        }
+
+        animator.SetFloat("Speed", agent.speed);
+        animator.SetFloat("Horizontal", horizontal);
+        animator.SetFloat("Vertical", vertical);
+
+        if (horizontal < 0)
+        {
+            playerSprite.flipX = true;
+        }
+        else if (horizontal > 0)
+        {
+            playerSprite.flipX = false;
         }
     }
 
