@@ -3,10 +3,15 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
+    [HideInInspector] public bool isRunning;
     Animator animator;
     float horizontal, vertical;
     float stopDistance;
+
+    [Header("Player Settings")]
+    public float RunSpeedMultiple;
+    float originalSpeed;
 
     SpriteRenderer playerSprite;
 
@@ -20,6 +25,7 @@ public class PlayerController : MonoBehaviour
         playerSprite = GetComponent<SpriteRenderer>();
 
         stopDistance = agent.stoppingDistance;
+        originalSpeed = agent.speed;
     }
 
     void Update()
@@ -45,6 +51,18 @@ public class PlayerController : MonoBehaviour
         else if (horizontal > 0)
         {
             playerSprite.flipX = false;
+        }
+
+        // Player Running
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isRunning = true;
+            agent.speed *= RunSpeedMultiple;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isRunning = false;
+            agent.speed = originalSpeed;
         }
     }
 
