@@ -19,7 +19,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
     PlayerController player;
 
-    IPlayerNumModel mModel;
+    public IPlayerNumModel mModel;
 
     protected override void Awake()
     {
@@ -38,7 +38,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
         mModel.PlayerHealth.RegisterWithInitValue(health =>
         {
-
+            UpdateHealthBar();
         }).UnRegisterWhenGameObjectDestroyed(gameObject);
 
         mModel.PlayerStamina.RegisterWithInitValue(stamina =>
@@ -48,7 +48,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
         mModel.PlayerLight.RegisterWithInitValue(light =>
         {
-
+            UpdateLightBar();
         }).UnRegisterWhenGameObjectDestroyed(gameObject);
     }
 
@@ -70,11 +70,22 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
             this.SendCommand(new PlayerStaminaChangeCommand(add));
         }
     }
+    void UpdateHealthBar()
+    {
+        float SliderPercent = (float)mModel.PlayerHealth.Value / 20;
+        HealthSlider.DOFillAmount(SliderPercent, 0.3f);
+    }
 
     void UpdateStaminaBar()
     {
         float SliderPercent = (float)mModel.PlayerStamina.Value / 10.0f;
         StaminaSlider.DOFillAmount(SliderPercent, 0.3f);
+    }
+
+    void UpdateLightBar()
+    {
+        float SliderPercent = (float)mModel.PlayerLight.Value / 5.0f;
+        LightSlider.DOFillAmount(SliderPercent, 0.3f);
     }
 
     public IArchitecture GetArchitecture()

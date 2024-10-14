@@ -54,12 +54,12 @@ public class PlayerController : MonoBehaviour
         }
 
         // Player Running
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerNumController.Instance.mModel.PlayerStamina.Value > 0)
         {
             isRunning = true;
             agent.speed *= RunSpeedMultiple;
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || PlayerNumController.Instance.mModel.PlayerStamina.Value <= 0)
         {
             isRunning = false;
             agent.speed = originalSpeed;
