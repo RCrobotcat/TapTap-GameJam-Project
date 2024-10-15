@@ -54,16 +54,22 @@ public class PlayerController : MonoBehaviour
         }
 
         // Player Running
-        if (Input.GetKeyDown(KeyCode.LeftShift) && PlayerNumController.Instance.mModel.PlayerStamina.Value > 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            isRunning = true;
-            agent.speed *= RunSpeedMultiple;
+            if (PlayerNumController.Instance.mModel.PlayerStamina.Value > 0)
+            {
+                PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(true);
+                isRunning = true;
+                agent.speed *= RunSpeedMultiple;
+            }
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || PlayerNumController.Instance.mModel.PlayerStamina.Value <= 0)
         {
             isRunning = false;
             agent.speed = originalSpeed;
         }
+        if (PlayerNumController.Instance.mModel.PlayerStamina.Value >= 10.0f && !Input.GetKeyDown(KeyCode.LeftShift))
+            PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(false);
     }
 
     public void MovePlayer(Vector3 inputDirection)
