@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
                 effect = Instantiate(playerSlashEffect, slashEffectPos_left.position, Quaternion.identity);
             else
                 effect = Instantiate(playerSlashEffect, slashEffectPos_right.position, Quaternion.Euler(0, 180, 0));
-            Destroy(effect, 0.5f);
+            Destroy(effect, 0.3f);
         }
     }
 
