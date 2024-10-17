@@ -15,6 +15,12 @@ public class PlayerController : MonoBehaviour
 
     SpriteRenderer playerSprite;
 
+    [Header("Stash Settings")]
+    public float SlashStaminaCost;
+    public GameObject playerSlashEffect;
+    public Transform slashEffectPos_left;
+    public Transform slashEffectPos_right;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -70,6 +76,20 @@ public class PlayerController : MonoBehaviour
         }
         if (PlayerNumController.Instance.mModel.PlayerStamina.Value >= 10.0f && !Input.GetKeyDown(KeyCode.LeftShift))
             PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(false);
+
+        // Player Attacking
+        if (Input.GetKeyDown(KeyCode.E) && PlayerNumController.Instance.mModel.PlayerStamina.Value > 3.0f)
+        {
+            animator.SetTrigger("Attack");
+            PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(true);
+            PlayerNumController.Instance.StaminaChange(SlashStaminaCost);
+            GameObject effect;
+            if (horizontal < 0)
+                effect = Instantiate(playerSlashEffect, slashEffectPos_left.position, Quaternion.identity);
+            else
+                effect = Instantiate(playerSlashEffect, slashEffectPos_right.position, Quaternion.Euler(0, 180, 0));
+            Destroy(effect, 0.5f);
+        }
     }
 
     public void MovePlayer(Vector3 inputDirection)

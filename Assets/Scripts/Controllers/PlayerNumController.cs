@@ -88,6 +88,11 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         LightSlider.DOFillAmount(SliderPercent, 0.3f);
     }
 
+    public void StaminaChange(float val)
+    {
+        this.SendCommand(new PlayerStaminaChangeCommand(val));
+    }
+
     public IArchitecture GetArchitecture()
     {
         return PlayerApp.Interface;
