@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
             MovePlayer(CamRelativeMove);
         }
 
-        animator.SetFloat("Speed", agent.speed);
+        animator.SetFloat("Speed", agent.velocity.magnitude);
         animator.SetFloat("Horizontal", horizontal);
         animator.SetFloat("Vertical", vertical);
 
@@ -66,12 +66,14 @@ public class PlayerController : MonoBehaviour
             {
                 PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(true);
                 isRunning = true;
+                animator.SetBool("Running", true);
                 agent.speed *= RunSpeedMultiple;
             }
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || PlayerNumController.Instance.mModel.PlayerStamina.Value <= 0)
         {
             isRunning = false;
+            animator.SetBool("Running", false);
             agent.speed = originalSpeed;
         }
         if (PlayerNumController.Instance.mModel.PlayerStamina.Value >= 10.0f && !Input.GetKeyDown(KeyCode.LeftShift))
