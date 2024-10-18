@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -15,11 +16,13 @@ public class PlayerController : MonoBehaviour
 
     SpriteRenderer playerSprite;
 
-    [Header("Stash Settings")]
+    [Header("Slash Settings")]
     public float SlashStaminaCost;
     public GameObject playerSlashEffect;
     public Transform slashEffectPos_left;
     public Transform slashEffectPos_right;
+
+    private Coroutine attackCoroutine;
 
     void Awake()
     {
@@ -82,15 +85,10 @@ public class PlayerController : MonoBehaviour
         // Player Attacking
         if (Input.GetKeyDown(KeyCode.E) && PlayerNumController.Instance.mModel.PlayerStamina.Value > 3.0f)
         {
-            animator.SetTrigger("Attack");
-            PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(true);
-            PlayerNumController.Instance.StaminaChange(SlashStaminaCost);
-            GameObject effect;
-            if (horizontal < 0)
-                effect = Instantiate(playerSlashEffect, slashEffectPos_left.position, Quaternion.identity);
-            else
-                effect = Instantiate(playerSlashEffect, slashEffectPos_right.position, Quaternion.Euler(0, 180, 0));
-            Destroy(effect, 0.3f);
+            if (attackCoroutine == null)
+            {
+                attackCoroutine = StartCoroutine(PlayerAttack());
+            }
         }
     }
 
@@ -102,9 +100,8 @@ public class PlayerController : MonoBehaviour
 
     public void MoveToTarget(Vector3 target)
     {
-        StopAllCoroutines();
+        // StopAllCoroutines()
         agent.stoppingDistance = stopDistance;
-        agent.isStopped = false;
         agent.destination = target;
     }
 
@@ -124,5 +121,25 @@ public class PlayerController : MonoBehaviour
 
         Vector3 vectorRotateToCameraSpace = CamForwardZProduct + CamRightXProduct;
         return vectorRotateToCameraSpace;
+    }
+
+    IEnumerator PlayerAttack()
+    {
+        agent.isStopped = true;
+        animator.SetTrigger("Attack");
+        PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(true);
+        PlayerNumController.Instance.StaminaChange(SlashStaminaCost);
+        GameObject effect;
+
+        if (horizontal < 0)
+            effect = Instantiate(playerSlashEffect, slashEffectPos_left.position, Quaternion.identity);
+        else
+            effect = Instantiate(playerSlashEffect, slashEffectPos_right.position, Quaternion.Euler(0, 180, 0));
+
+        Destroy(effect, 0.3f);
+        yield return new WaitForSeconds(0.1f);
+        agent.isStopped = false;
+
+        attackCoroutine = null; // clear the coroutine reference
     }
 }
