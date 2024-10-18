@@ -57,7 +57,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
     void HandleStaminaChange()
     {
-        if (PlayerController.Instance.isRunning && PlayerController.Instance.agent.speed > 0.1f)
+        if (PlayerController.Instance.isRunning && PlayerController.Instance.agent.velocity.magnitude > 0.1f)
         {
             float cost = RunStaminaCost * Time.deltaTime * -1f;
             this.SendCommand(new PlayerStaminaChangeCommand(cost));

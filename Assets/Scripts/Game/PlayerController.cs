@@ -75,7 +75,8 @@ public class PlayerController : Singleton<PlayerController>
                 agent.speed *= RunSpeedMultiple;
             }
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift) || PlayerNumController.Instance.mModel.PlayerStamina.Value <= 0)
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || PlayerNumController.Instance.mModel.PlayerStamina.Value <= 0
+            || agent.velocity.magnitude <= 0.1f)
         {
             isRunning = false;
             animator.SetBool("Running", false);
