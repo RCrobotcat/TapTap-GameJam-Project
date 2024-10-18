@@ -32,6 +32,17 @@ public class ItemUI : MonoBehaviour
         else icon.gameObject.SetActive(false);
     }
 
+    public void SetUpItemUI(ItemData_SO item)
+    {
+        if (item != null)
+        {
+            currentItemData = item;
+            icon.sprite = item.itemIcon;
+            icon.gameObject.SetActive(true);
+        }
+        else icon.gameObject.SetActive(false);
+    }
+
     public ItemData_SO GetItem()
     {
         return Bag.items[Index].itemData;

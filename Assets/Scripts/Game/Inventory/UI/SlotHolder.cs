@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 
 public enum SlotType { BAG, WEAPON, ARMOR, ACTION }
 public class SlotHolder : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
@@ -31,12 +32,27 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
     public void UseItem()
     {
-        if (itemUI.GetItem() != null)
+        if (itemUI.GetItem() != null && slotType == SlotType.BAG)
         {
             if (itemUI.GetItem().itemType == ItemType.Usable && itemUI.Bag.items[itemUI.Index].amount > 0)
             {
                 // GameManager.Instance.playerStatus.ApplyHealth(itemUI.GetItem().usableItemData.RestoreHealthPoint);
                 itemUI.Bag.items[itemUI.Index].amount--; // decrease the amount by 1
+            }
+            else if (itemUI.GetItem().itemType == ItemType.Weapon && itemUI.Bag.items[itemUI.Index].amount > 0)
+            {
+                if (InventoryManager.Instance.actionData.items[0] == new InventoryItem())
+                {
+                    InventoryManager.Instance.actionData.items[0] = new InventoryItem(itemUI.GetItem(), 1);
+                    itemUI.Bag.items[itemUI.Index] = new InventoryItem();
+                }
+                else
+                {
+                    var temItem = InventoryManager.Instance.actionData.items[0];
+                    InventoryManager.Instance.actionData.items[0] = new InventoryItem(itemUI.GetItem(), 1);
+                    itemUI.Bag.items[itemUI.Index] = temItem;
+                }
+                InventoryManager.Instance.actionUI.slots[0].UpdateItem();
             }
         }
         UpdateItem();
@@ -67,11 +83,18 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
                 break;*/
             case SlotType.ACTION:
                 itemUI.Bag = InventoryManager.Instance.actionData;
+                if (itemUI.Bag.items[itemUI.Index].itemData != null)
+                    PlayerController.Instance.EquipWeapon();
+                else
+                    PlayerController.Instance.UnEquipWeapon();
                 break;
         }
 
         var item = itemUI.Bag.items[itemUI.Index];
-        itemUI.SetUpItemUI(item.itemData, item.amount);
+        if (slotType == SlotType.BAG)
+            itemUI.SetUpItemUI(item.itemData, item.amount);
+        else if (slotType == SlotType.ACTION)
+            itemUI.SetUpItemUI(item.itemData);
     }
 
     void OnDisable()

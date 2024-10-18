@@ -5,8 +5,8 @@ using DG.Tweening;
 
 public class PlayerNumController : Singleton<PlayerNumController>, IController
 {
-    public Transform PlayerHealthBar;
-    Image HealthSlider;
+    /*public Transform PlayerHealthBar;
+    Image HealthSlider;*/
 
     public Transform PlayerStaminaBar;
     Image StaminaSlider;
@@ -17,29 +17,27 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
     [Header("Player Nums Settings")]
     public float RunStaminaCost;
 
-    PlayerController player;
-
     public IPlayerNumModel mModel;
 
     protected override void Awake()
     {
         base.Awake();
 
-        HealthSlider = PlayerHealthBar.GetChild(0).GetComponent<Image>();
+        // HealthSlider = PlayerHealthBar.GetChild(0).GetComponent<Image>();
         StaminaSlider = PlayerStaminaBar.GetChild(0).GetComponent<Image>();
         LightSlider = PlayerLightBar.GetChild(0).GetComponent<Image>();
 
-        player = GameObject.Find("Player").GetComponent<PlayerController>();
+        // player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Start()
     {
         mModel = this.GetModel<IPlayerNumModel>();
 
-        mModel.PlayerHealth.RegisterWithInitValue(health =>
+        /*mModel.PlayerHealth.RegisterWithInitValue(health =>
         {
             UpdateHealthBar();
-        }).UnRegisterWhenGameObjectDestroyed(gameObject);
+        }).UnRegisterWhenGameObjectDestroyed(gameObject);*/
 
         mModel.PlayerStamina.RegisterWithInitValue(stamina =>
         {
@@ -59,7 +57,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
     void HandleStaminaChange()
     {
-        if (player.isRunning && player.agent.speed > 0.1f)
+        if (PlayerController.Instance.isRunning && PlayerController.Instance.agent.speed > 0.1f)
         {
             float cost = RunStaminaCost * Time.deltaTime * -1f;
             this.SendCommand(new PlayerStaminaChangeCommand(cost));
@@ -70,15 +68,16 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
             this.SendCommand(new PlayerStaminaChangeCommand(add));
         }
     }
-    void UpdateHealthBar()
+
+    /*void UpdateHealthBar()
     {
         float SliderPercent = (float)mModel.PlayerHealth.Value / 20;
         HealthSlider.DOFillAmount(SliderPercent, 0.3f);
-    }
+    }*/
 
     void UpdateStaminaBar()
     {
-        float SliderPercent = (float)mModel.PlayerStamina.Value / 10.0f;
+        float SliderPercent = (float)mModel.PlayerStamina.Value / 15.0f;
         StaminaSlider.DOFillAmount(SliderPercent, 0.3f);
     }
 

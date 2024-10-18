@@ -32,6 +32,7 @@ public class ContainerUI : MonoBehaviour
         var sortedItems = items
             .Where(itemSlot => itemSlot.itemData != null)
             .OrderBy(itemSlot => itemSlot.itemData.itemType == ItemType.Weapon ? 0 : 1)
+            .ThenByDescending(itemSlot => itemSlot.itemData?.WeaponData.minDamage)
             .ThenBy(itemSlot => itemSlot.itemData.itemType == ItemType.Armor ? 0 : 1)
             .ToList();
 

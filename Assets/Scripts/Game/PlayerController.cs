@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     [HideInInspector] public NavMeshAgent agent;
     [HideInInspector] public bool isRunning;
@@ -24,8 +24,10 @@ public class PlayerController : MonoBehaviour
 
     private Coroutine attackCoroutine;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -79,11 +81,12 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("Running", false);
             agent.speed = originalSpeed;
         }
-        if (PlayerNumController.Instance.mModel.PlayerStamina.Value >= 10.0f && !Input.GetKeyDown(KeyCode.LeftShift))
+        if (PlayerNumController.Instance.mModel.PlayerStamina.Value >= 15.0f && !Input.GetKeyDown(KeyCode.LeftShift))
             PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(false);
 
         // Player Attacking
-        if (Input.GetKeyDown(KeyCode.E) && PlayerNumController.Instance.mModel.PlayerStamina.Value > 3.0f)
+        if (Input.GetKeyDown(KeyCode.E) && PlayerNumController.Instance.mModel.PlayerStamina.Value > 3.0f
+            && playerSlashEffect != null)
         {
             if (attackCoroutine == null)
             {
@@ -91,6 +94,20 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    #region Weapon Equip/UnEquip
+    public void EquipWeapon()
+    {
+        var wepon = InventoryManager.Instance.actionData.items[0].itemData;
+        if (wepon != null)
+            playerSlashEffect = wepon.WeaponPrefab;
+    }
+
+    public void UnEquipWeapon()
+    {
+        playerSlashEffect = null;
+    }
+    #endregion
 
     public void MovePlayer(Vector3 inputDirection)
     {
@@ -137,7 +154,7 @@ public class PlayerController : MonoBehaviour
             effect = Instantiate(playerSlashEffect, slashEffectPos_right.position, Quaternion.Euler(0, 180, 0));
 
         Destroy(effect, 0.3f);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         agent.isStopped = false;
 
         attackCoroutine = null; // clear the coroutine reference

@@ -28,7 +28,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public void OnDrag(PointerEventData eventData)
     {
         transform.position = eventData.position; // follow the mouse cursor
-        Debug.Log(eventData.pointerEnter.gameObject.name);
+        // Debug.Log(eventData.pointerEnter.gameObject.name);
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -52,7 +52,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
                             SwapItem();
                             break;
                         case SlotType.ACTION:
-                            if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Usable)
+                            if (currentItemUI.Bag.items[currentItemUI.Index].itemData.itemType == ItemType.Weapon)
                                 SwapItem();
                             break;
                             /*case SlotType.ARMOR:

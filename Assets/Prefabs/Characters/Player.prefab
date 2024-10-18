@@ -201,7 +201,7 @@ MonoBehaviour:
   isRunning: 0
   RunSpeedMultiple: 2
   SlashStaminaCost: -3
-  playerSlashEffect: {fileID: 8049750589784031866, guid: 556f9bb0967456345a5bfa3e94162b50, type: 3}
+  playerSlashEffect: {fileID: 0}
   slashEffectPos_left: {fileID: 2572231585898527160}
   slashEffectPos_right: {fileID: 3444208895738304747}
 --- !u!1 &4967234017040909172

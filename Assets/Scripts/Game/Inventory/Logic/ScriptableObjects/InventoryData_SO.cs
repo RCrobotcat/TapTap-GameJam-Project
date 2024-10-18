@@ -34,9 +34,17 @@ public class InventoryData_SO : ScriptableObject
     }
 }
 
-[System.Serializable] // 
+[System.Serializable]
 public class InventoryItem
 {
     public ItemData_SO itemData;
     public int amount;
+
+    public InventoryItem() { }
+
+    public InventoryItem(ItemData_SO itemData, int amount)
+    {
+        this.itemData = itemData;
+        this.amount = amount;
+    }
 }
