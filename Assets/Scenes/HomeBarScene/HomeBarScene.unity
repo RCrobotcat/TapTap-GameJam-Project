@@ -4362,18 +4362,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Counter
       objectReference: {fileID: 0}
-    - target: {fileID: 4225717751840187546, guid: 264fa4a962360ee48bf550cbbee8714f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225717751840187546, guid: 264fa4a962360ee48bf550cbbee8714f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 4225717751840187546, guid: 264fa4a962360ee48bf550cbbee8714f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 8026424647966794371, guid: 264fa4a962360ee48bf550cbbee8714f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.96

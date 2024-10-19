@@ -34,6 +34,7 @@ public class PlayerNumModel : AbstractModel, IPlayerNumModel
         float currentStamina = PlayerStamina.Value + changeVal;
         PlayerStamina.Value = Mathf.Clamp(currentStamina, 0, 15.0f);
     }
+
     public void PlayerLightChange(float changeVal)
     {
         float currentLight = PlayerLight.Value + changeVal;
