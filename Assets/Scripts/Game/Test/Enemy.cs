@@ -1,12 +1,14 @@
+using System.IO.Pipes;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public  NavMeshAgent agent;
+    public Animator anim;
 
     public Vector3 trans;     //怪物坐标
-    private GameObject target;    //获取人物组件
+    public GameObject target;    //获取人物组件
 
     [Header("基础属性")]
     public float chaseRange;        //检测范围
@@ -16,70 +18,71 @@ public class Enemy : MonoBehaviour
     public bool isPatrol;           //是否在巡逻
     public bool isArrive;
 
+    [Header("状态机")]
+    private EnemyBaseState currentState;   //当前状态
+    protected EnemyBaseState patrolState;   //巡逻状态
+    protected EnemyBaseState chaseState;   //追击状态
+    protected EnemyBaseState attackState;  //攻击状态
+
+    protected virtual void Awake()
+    {
+        
+    }
     private void Start()
     {
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+
         target = GameObject.FindWithTag("Player");
         trans = gameObject.GetComponent<Transform>().position;
     }
 
+    private void OnEnable()
+    {
+        currentState = patrolState;    //初始化赋值巡逻状态
+        currentState.OnEnter(this);
+    }
+
+    private void OnDisable()
+    {
+        currentState.OnExit();
+    }
+
     private void Update()
     {
-        if (isPatrol)
-        {
-            OnPatrol();
-        }
-        OnChase();
+        currentState.LogicUpdate();
 
     }
-
-    private void OnPatrol()
+    private void FixedUpdate()
     {
-
-        if (isArrive)
-        {
-            randomPosition = new Vector3(trans.x + Random.Range(-5f, 5f), 0f, trans.z + Random.Range(-5f, 5f));
-            isArrive = false;
-        }
-        if ((transform.position.x != randomPosition.x) && (transform.position.z != randomPosition.z))
-        {
-            agent.SetDestination(randomPosition);
-
-        }
-        else
-        {
-            isArrive = true;
-        }
+        currentState.PhysicsUpdate();
     }
 
-    private void OnChase()
+
+    public bool FoundPlayer()
     {
         float distanceToPlayer = Vector3.Distance(target.transform.position, transform.position);
         if (distanceToPlayer <= chaseRange)
         {
-            isChasing = true;
-            isPatrol = false;
+            return true;
         }
-        else
-        {
-            isChasing = false;
-        }
+        return false;
+    }
 
-        if (isChasing)
+    public void SwitchState(EnemyState state)
+    {
+        var newState = state switch
         {
-            agent.SetDestination(target.transform.position);
-        }
+            EnemyState.Chasing => chaseState,
+            EnemyState.Patroling => patrolState,
+            EnemyState.Attackiing => attackState,
+            _ => null
+        }; ;
 
-        if (!isChasing && !isPatrol)
-        {
-            agent.SetDestination(trans);
-            if (new Vector3(transform.position.x, 0f, transform.position.z) == new Vector3(trans.x, 0f, trans.z))
-            {
-                Debug.Log(1);
-                isPatrol = true;
-                isArrive = true;
-            }
-        }
+        //切换状态
+        currentState.OnExit();
+        currentState = newState;
+        currentState.OnEnter(this);
     }
 
     private void OnDrawGizmosSelected() // 绘制警戒半径
