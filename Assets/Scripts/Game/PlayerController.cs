@@ -18,7 +18,7 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("Slash Settings")]
     public float SlashStaminaCost;
-    public GameObject playerSlashEffect;
+    [HideInInspector] public GameObject playerSlashEffect;
     public Transform slashEffectPos_left;
     public Transform slashEffectPos_right;
 
@@ -149,7 +149,8 @@ public class PlayerController : Singleton<PlayerController>
         PlayerNumController.Instance.StaminaChange(SlashStaminaCost);
         GameObject effect;
 
-        if (horizontal < 0)
+        yield return new WaitForSeconds(0.5f);
+        if (playerSprite.flipX)
             effect = Instantiate(playerSlashEffect, slashEffectPos_left.position, Quaternion.identity);
         else
             effect = Instantiate(playerSlashEffect, slashEffectPos_right.position, Quaternion.Euler(0, 180, 0));

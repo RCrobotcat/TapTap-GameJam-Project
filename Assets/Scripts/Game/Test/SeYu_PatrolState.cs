@@ -20,7 +20,6 @@ public class SeYu_PatrolState : EnemyBaseState    //巡逻状态
         {
             //前往新的坐标
             currentEnemy.agent.SetDestination(currentEnemy.randomPosition);
-
         }
         else
         {
@@ -67,7 +66,6 @@ public class SeYu_ChaseState : EnemyBaseState
             }
         }
     }
-
 
     public override void PhysicsUpdate() { }
     public override void OnExit()

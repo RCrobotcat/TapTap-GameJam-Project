@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public abstract class  EnemyBaseState 
+public abstract class EnemyBaseState
 {
     protected Enemy currentEnemy;
 

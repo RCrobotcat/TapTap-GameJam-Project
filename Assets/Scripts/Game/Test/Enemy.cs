@@ -1,10 +1,9 @@
-using System.IO.Pipes;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public  NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Animator anim;
 
     public Vector3 trans;     //¹ÖÎï×ø±ê
@@ -13,6 +12,7 @@ public class Enemy : MonoBehaviour
     [Header("»ù´¡ÊôÐÔ")]
     public float chaseRange;        //¼ì²â·¶Î§
     public Vector3 randomPosition;
+
     [Header("×´Ì¬")]
     public bool isChasing;          //ÊÇ·ñ·¢Æð×·»÷
     public bool isPatrol;           //ÊÇ·ñÔÚÑ²Âß
@@ -24,14 +24,13 @@ public class Enemy : MonoBehaviour
     protected EnemyBaseState chaseState;   //×·»÷×´Ì¬
     protected EnemyBaseState attackState;  //¹¥»÷×´Ì¬
 
-    protected virtual void Awake()
-    {
-        
-    }
+    protected virtual void Awake() { }
     private void Start()
     {
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
 
         target = GameObject.FindWithTag("Player");
         trans = gameObject.GetComponent<Transform>().position;
@@ -51,13 +50,11 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         currentState.LogicUpdate();
-
     }
     private void FixedUpdate()
     {
         currentState.PhysicsUpdate();
     }
-
 
     public bool FoundPlayer()
     {
