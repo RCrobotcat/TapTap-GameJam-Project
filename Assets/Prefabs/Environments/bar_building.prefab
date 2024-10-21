@@ -136,8 +136,8 @@ Transform:
   m_GameObject: {fileID: 4227389455846068845}
   serializedVersion: 2
   m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 0.0831, y: 0.4436, z: -0.1409}
-  m_LocalScale: {x: 12.734844, y: 7.3083925, z: 4.0944705}
+  m_LocalPosition: {x: 0.0831, y: 0.268, z: -0.445}
+  m_LocalScale: {x: 12.734844, y: 7.3083925, z: 4.796672}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4243690282893842551}
@@ -269,7 +269,7 @@ CapsuleCollider:
   m_Radius: 2
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0.59, y: 0, z: 0.29}
+  m_Center: {x: 0.59, y: 0, z: 1.14}
 --- !u!114 &6506933415340752676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 2327470021818962666}
   - component: {fileID: 6193556732005149699}
   - component: {fileID: 3261289089884458725}
+  - component: {fileID: 714297484755716082}
   m_Layer: 5
   m_Name: Tip
   m_TagString: Untagged
@@ -453,8 +454,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 5dd49b3eacc540408c98eee0de38e0f1, type: 3}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -487,3 +488,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &714297484755716082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8889038392024925979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1

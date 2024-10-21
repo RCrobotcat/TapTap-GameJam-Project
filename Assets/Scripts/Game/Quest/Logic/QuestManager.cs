@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class QuestManager : Singleton<QuestManager>
 {
@@ -20,21 +21,21 @@ public class QuestManager : Singleton<QuestManager>
         DontDestroyOnLoad(this);
     }
 
-    /*void Start()
+    void Start()
     {
         LoadQuestManager();
-    }*/
+    }
 
-    /*public void SaveQuestManager()
+    public void SaveQuestManager()
     {
         PlayerPrefs.SetInt("QuestCount", questTasks.Count);
         for (int i = 0; i < questTasks.Count; i++)
         {
             SaveManager.Instance.Save(questTasks[i].questData, "task" + i);
         }
-    }*/
+    }
 
-    /*public void LoadQuestManager()
+    public void LoadQuestManager()
     {
         var questCount = PlayerPrefs.GetInt("QuestCount");
         questTasks.Clear();
@@ -44,7 +45,7 @@ public class QuestManager : Singleton<QuestManager>
             SaveManager.Instance.Load(newQuest, "task" + i);
             questTasks.Add(new QuestTask { questData = newQuest });
         }
-    }*/
+    }
 
     public bool HaveQuest(QuestData_SO quest)
     {

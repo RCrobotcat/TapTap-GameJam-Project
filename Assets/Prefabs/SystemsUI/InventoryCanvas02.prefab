@@ -4123,6 +4123,7 @@ GameObject:
   - component: {fileID: 8377986127172844538}
   - component: {fileID: 6424730783660242179}
   - component: {fileID: 8768067204046822414}
+  - component: {fileID: 1768301817833005666}
   m_Layer: 5
   m_Name: InventoryBag
   m_TagString: Untagged
@@ -4190,6 +4191,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1768301817833005666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837766652714885173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941f6f32ba7c4ad4c8a89d5ac025cc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4850017741610319904
 GameObject:
   m_ObjectHideFlags: 0

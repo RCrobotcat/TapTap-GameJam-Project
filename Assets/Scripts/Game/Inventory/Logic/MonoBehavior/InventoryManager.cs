@@ -56,7 +56,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     void Start()
     {
-        // LoadData();
+        LoadData();
         inventoryUI.RefreshUI();
         actionUI.RefreshUI();
         // equipmentUI.RefreshUI();
@@ -77,19 +77,19 @@ public class InventoryManager : Singleton<InventoryManager>
             GameManager.Instance.playerStatus.currentDefence);*/
     }
 
-    /*public void SaveData()
+    #region Save Data
+    public void SaveData()
     {
         SaveManager.Instance.Save(inventoryData, inventoryData.name);
-        SaveManager.Instance.Save(actionData, actionData.name);
-        SaveManager.Instance.Save(equipmentData, equipmentData.name);
+        SaveManager.Instance.Save(actionData, actionData.name); ;
     }
 
     public void LoadData()
     {
         SaveManager.Instance.Load(inventoryData, inventoryData.name);
         SaveManager.Instance.Load(actionData, actionData.name);
-        SaveManager.Instance.Load(equipmentData, equipmentData.name);
-    }*/
+    }
+    #endregion
 
     /*public void UpdateStatusText(int health, int min, int max, int defence)
     {
