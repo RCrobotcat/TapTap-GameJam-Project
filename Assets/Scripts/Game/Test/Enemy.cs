@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,6 +25,8 @@ public class Enemy : MonoBehaviour
     protected EnemyBaseState chaseState;   //×·»÷×´Ì¬
     protected EnemyBaseState attackState;  //¹¥»÷×´Ì¬
 
+    CinemachineVirtualCamera playerCam;
+
     protected virtual void Awake() { }
     private void Start()
     {
@@ -33,6 +36,7 @@ public class Enemy : MonoBehaviour
         agent.updateUpAxis = false;
 
         target = GameObject.FindWithTag("Player");
+        playerCam = GameObject.Find("PlayerCamera").GetComponent<CinemachineVirtualCamera>();
         trans = gameObject.GetComponent<Transform>().position;
     }
 
@@ -61,9 +65,14 @@ public class Enemy : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(target.transform.position, transform.position);
         if (distanceToPlayer <= chaseRange)
         {
+            playerCam.m_Lens.FieldOfView = Mathf.Lerp(playerCam.m_Lens.FieldOfView, 70, Time.deltaTime * 1.5f);
             return true;
         }
-        return false;
+        else
+        {
+            playerCam.m_Lens.FieldOfView = Mathf.Lerp(playerCam.m_Lens.FieldOfView, 40, Time.deltaTime * 1.5f);
+            return false;
+        }
     }
 
     public void SwitchState(EnemyState state)

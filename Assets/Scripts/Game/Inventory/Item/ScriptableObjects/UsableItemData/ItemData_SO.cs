@@ -10,6 +10,8 @@ public class ItemData_SO : ScriptableObject
     public Sprite itemIcon;
     public int itemAmount;
 
+    public bool isPicked;
+
     [TextArea]
     public string description = "";
 

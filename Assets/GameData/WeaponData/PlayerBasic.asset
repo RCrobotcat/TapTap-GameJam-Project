@@ -16,6 +16,7 @@ MonoBehaviour:
   itemName: Basic Slash
   itemIcon: {fileID: 21300000, guid: 4f83e880c0ef81b45aa78e909284d215, type: 3}
   itemAmount: 1
+  isPicked: 0
   description: Player Basic Slashing Magic Weapon.
   stackable: 0
   WeaponPrefab: {fileID: 8049750589784031866, guid: 556f9bb0967456345a5bfa3e94162b50, type: 3}
