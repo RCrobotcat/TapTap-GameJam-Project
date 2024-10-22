@@ -16,6 +16,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
     [Header("Player Nums Settings")]
     public float RunStaminaCost;
+    public float RageLightCost;
 
     public IPlayerNumModel mModel;
 
@@ -26,8 +27,6 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         // HealthSlider = PlayerHealthBar.GetChild(0).GetComponent<Image>();
         StaminaSlider = PlayerStaminaBar.GetChild(0).GetComponent<Image>();
         LightSlider = PlayerLightBar.GetChild(0).GetComponent<Image>();
-
-        // player = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Start()
@@ -53,6 +52,21 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
     void Update()
     {
         HandleStaminaChange();
+
+        HandleLightChange();
+    }
+
+    void HandleLightChange()
+    {
+        if (PlayerController.Instance.equipRage)
+        {
+            float cost = RageLightCost * Time.deltaTime * -1f;
+            this.SendCommand(new PlayerLightChangeCommand(cost));
+            if(mModel.PlayerLight.Value <= 0.5f)
+            {
+                PlayerController.Instance.equipRage = false;
+            }
+        }
     }
 
     void HandleStaminaChange()

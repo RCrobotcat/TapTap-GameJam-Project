@@ -28,6 +28,9 @@ public class Enemy : MonoBehaviour
     protected EnemyBaseState attackState;  //¹¥»÷×´Ì¬
 
     CinemachineVirtualCamera playerCam;
+    SpriteRenderer enemySprite;
+
+    float horizontal, vertical;
 
     public float currentHealth
     {
@@ -50,6 +53,7 @@ public class Enemy : MonoBehaviour
         trans = gameObject.GetComponent<Transform>().position;
 
         EnemyCurrentHealth = EnemyMaxHealth;
+        enemySprite = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -66,6 +70,17 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         currentState.LogicUpdate();
+
+        horizontal = target.transform.position.x - transform.position.x;
+
+        if (horizontal < 0)
+        {
+            enemySprite.flipX = false;
+        }
+        else if (horizontal > 0)
+        {
+            enemySprite.flipX = true;
+        }
     }
     private void FixedUpdate()
     {
@@ -111,7 +126,7 @@ public class Enemy : MonoBehaviour
         float currentHealth = EnemyCurrentHealth - damage;
         EnemyCurrentHealth = Mathf.Clamp(currentHealth, 0, EnemyMaxHealth);
         anim.SetTrigger("GetHit");
-        CinemachineShake.Instance.shakingCamera(5f, 0.2f);
+        CinemachineShake.Instance.shakingCamera(5f, 0.3f);
     }
 
     private void OnDrawGizmosSelected() // »æÖÆ¾¯½ä°ë¾¶

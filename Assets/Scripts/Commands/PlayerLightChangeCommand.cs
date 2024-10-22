@@ -2,9 +2,9 @@ using QFramework;
 
 public class PlayerLightChangeCommand : AbstractCommand
 {
-    int _lightChange;
+    float _lightChange;
 
-    public PlayerLightChangeCommand(int lightChange)
+    public PlayerLightChangeCommand(float lightChange)
     {
         _lightChange = lightChange;
     }

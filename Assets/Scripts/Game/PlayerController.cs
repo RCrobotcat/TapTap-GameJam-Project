@@ -23,6 +23,8 @@ public class PlayerController : Singleton<PlayerController>
     public Transform slashEffectPos_right;
     public float detectRange; // Player detect range
 
+    [HideInInspector] public bool equipRage;
+
     private Coroutine attackCoroutine;
 
     protected override void Awake()
@@ -100,13 +102,21 @@ public class PlayerController : Singleton<PlayerController>
     #region Weapon Equip/UnEquip
     public void EquipWeapon()
     {
-        var wepon = InventoryManager.Instance.actionData.items[0].itemData;
-        if (wepon != null)
-            playerSlashEffect = wepon.WeaponPrefab;
+        var weapon = InventoryManager.Instance.actionData.items[0].itemData;
+
+
+        if (weapon != null)
+        {
+            if (weapon.itemName == "Rage")
+                equipRage = true;
+            else equipRage = false;
+            playerSlashEffect = weapon.WeaponPrefab;
+        }
     }
 
     public void UnEquipWeapon()
     {
+        if (equipRage) equipRage = false;
         playerSlashEffect = null;
     }
     #endregion
@@ -211,7 +221,6 @@ public class PlayerController : Singleton<PlayerController>
         return (float)coreDamage;
     }
     #endregion
-
 
     // Draw the detection range
     private void OnDrawGizmosSelected()
