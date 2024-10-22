@@ -177,6 +177,7 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseRange: 15
   randomPosition: {x: 0, y: 0, z: 0}
+  EnemyMaxHealth: 300
   isChasing: 0
   isPatrol: 0
   isArrive: 1

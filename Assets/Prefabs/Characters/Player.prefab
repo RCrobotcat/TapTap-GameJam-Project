@@ -204,6 +204,7 @@ MonoBehaviour:
   playerSlashEffect: {fileID: 0}
   slashEffectPos_left: {fileID: 2572231585898527160}
   slashEffectPos_right: {fileID: 3444208895738304747}
+  detectRange: 10
 --- !u!1 &4967234017040909172
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     [Header("»ù´¡ÊôÐÔ")]
     public float chaseRange;        //¼ì²â·¶Î§
     public Vector3 randomPosition;
+    public float EnemyMaxHealth; //¹ÖÎïÉúÃüÖµ
+    float EnemyCurrentHealth;
 
     [Header("×´Ì¬")]
     public bool isChasing;          //ÊÇ·ñ·¢Æð×·»÷
@@ -27,6 +29,14 @@ public class Enemy : MonoBehaviour
 
     CinemachineVirtualCamera playerCam;
 
+    public float currentHealth
+    {
+        get
+        {
+            return EnemyCurrentHealth;
+        }
+    }
+
     protected virtual void Awake() { }
     private void Start()
     {
@@ -38,6 +48,8 @@ public class Enemy : MonoBehaviour
         target = GameObject.FindWithTag("Player");
         playerCam = GameObject.Find("PlayerCamera").GetComponent<CinemachineVirtualCamera>();
         trans = gameObject.GetComponent<Transform>().position;
+
+        EnemyCurrentHealth = EnemyMaxHealth;
     }
 
     private void OnEnable()
@@ -66,11 +78,14 @@ public class Enemy : MonoBehaviour
         if (distanceToPlayer <= chaseRange)
         {
             playerCam.m_Lens.FieldOfView = Mathf.Lerp(playerCam.m_Lens.FieldOfView, 70, Time.deltaTime * 1.5f);
+            InventoryManager.Instance.EnemyHealthPanel.SetActive(true);
+            InventoryManager.Instance.EnemyHealthPanel.GetComponent<EnemyHealthUI>().UpdateHealthBar(EnemyCurrentHealth, EnemyMaxHealth);
             return true;
         }
         else
         {
             playerCam.m_Lens.FieldOfView = Mathf.Lerp(playerCam.m_Lens.FieldOfView, 40, Time.deltaTime * 1.5f);
+            InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
             return false;
         }
     }
@@ -89,6 +104,14 @@ public class Enemy : MonoBehaviour
         currentState.OnExit();
         currentState = newState;
         currentState.OnEnter(this);
+    }
+
+    public void TakeDamage(float damage)
+    {
+        float currentHealth = EnemyCurrentHealth - damage;
+        EnemyCurrentHealth = Mathf.Clamp(currentHealth, 0, EnemyMaxHealth);
+        anim.SetTrigger("GetHit");
+        CinemachineShake.Instance.shakingCamera(5f, 0.2f);
     }
 
     private void OnDrawGizmosSelected() // »æÖÆ¾¯½ä°ë¾¶

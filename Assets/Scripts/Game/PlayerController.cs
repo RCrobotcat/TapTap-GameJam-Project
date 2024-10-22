@@ -21,6 +21,7 @@ public class PlayerController : Singleton<PlayerController>
     [HideInInspector] public GameObject playerSlashEffect;
     public Transform slashEffectPos_left;
     public Transform slashEffectPos_right;
+    public float detectRange; // Player detect range
 
     private Coroutine attackCoroutine;
 
@@ -160,5 +161,62 @@ public class PlayerController : Singleton<PlayerController>
         agent.isStopped = false;
 
         attackCoroutine = null; // clear the coroutine reference
+    }
+
+    #region Slash Attack Nums Logic
+    // Get Player Slashing Target
+    public GameObject GetSlashTarget()
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, detectRange);
+        foreach (Collider collider in colliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                return collider.gameObject;
+            }
+        }
+        return null;
+    }
+
+    // Player Slash Animation Event
+    public void PlayerSlashAttack()
+    {
+        GameObject target = GetSlashTarget();
+        var attackData = InventoryManager.Instance.actionData.items[0].itemData.WeaponData;
+        if (target != null)
+        {
+            if (Vector3.Distance(target.transform.position, transform.position) <= attackData.attackRange)
+            {
+                float damage = currentDamage();
+                Enemy enemy = target.GetComponent<Enemy>();
+                enemy.TakeDamage(damage);
+                InventoryManager.Instance.EnemyHealthPanel.GetComponent<EnemyHealthUI>()
+                    .UpdateHealthBar(enemy.currentHealth, enemy.EnemyMaxHealth);
+            }
+        }
+    }
+
+    // Calculate the current damage
+    private float currentDamage()
+    {
+        AttackData_SO attackData = InventoryManager.Instance.actionData.items[0].itemData.WeaponData;
+        float coreDamage = Random.Range(attackData.minDamage, attackData.maxDamage);
+
+        /*if (isCritical)
+        {
+            coreDamage *= attackData.criticalMultiplier;
+            // Debug.Log("Critical Hit: " + coreDamage);
+        }*/
+
+        return (float)coreDamage;
+    }
+    #endregion
+
+
+    // Draw the detection range
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
     }
 }

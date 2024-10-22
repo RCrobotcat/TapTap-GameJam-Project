@@ -31,6 +31,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     [Header("UI Panels")]
     public GameObject BagPanel;
+    public GameObject EnemyHealthPanel;
     // public GameObject EquipmentPanel;
 
     /*[Header("Status Text")]
