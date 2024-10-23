@@ -9,7 +9,8 @@ public class QuestNameBtn : MonoBehaviour
 
     void Awake()
     {
-        GetComponent<Button>().onClick.AddListener(UpdateQuestContent);
+        if (GetComponent<Button>() != null)
+            GetComponent<Button>().onClick.AddListener(UpdateQuestContent);
     }
 
     void UpdateQuestContent()
@@ -28,8 +29,8 @@ public class QuestNameBtn : MonoBehaviour
     {
         currentQuestData = questData;
 
-        if (questData.isCompleted)
-            questNameTxt.text = questData.questName + " (Completed)";
+        if (questData.isFinished)
+            questNameTxt.text = questData.questName + " (Finished)";
         else questNameTxt.text = questData.questName;
     }
 }

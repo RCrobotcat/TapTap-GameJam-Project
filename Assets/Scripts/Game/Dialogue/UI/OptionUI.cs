@@ -42,11 +42,13 @@ public class OptionUI : MonoBehaviour
                     {
                         newTask.questData.GiveQuestRewards();
                         QuestManager.Instance.GetQuestTask(newTask.questData).IsFinished = true;
+                        QuestUI.Instance.SetUpSideQuestList();
                     }
                 }
                 else
                 {
                     QuestManager.Instance.questTasks.Add(newTask);
+                    QuestUI.Instance.SetUpSideQuestList();
                     QuestManager.Instance.GetQuestTask(newTask.questData).IsStarted = true;
 
                     // Update the quest progress

@@ -74,5 +74,6 @@ public class QuestManager : Singleton<QuestManager>
             // check if the quest is completed.
             task.questData.CheckTaskProgress();
         }
+        QuestUI.Instance.SetUpSideQuestList();
     }
 }

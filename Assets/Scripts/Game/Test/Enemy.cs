@@ -81,6 +81,13 @@ public class Enemy : MonoBehaviour
         {
             enemySprite.flipX = true;
         }
+
+        if (EnemyCurrentHealth <= 0)
+        {
+            QuestManager.Instance.UpdateQuestProgress(gameObject.name, 1);
+            InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
+            Destroy(gameObject);
+        }
     }
     private void FixedUpdate()
     {

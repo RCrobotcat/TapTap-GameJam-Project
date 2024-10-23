@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System.Linq;
 
@@ -24,13 +25,22 @@ public class QuestData_SO : ScriptableObject
     public List<QuestRequirement> questRequirements = new List<QuestRequirement>();
     public List<InventoryItem> questRewards = new List<InventoryItem>();
 
+    bool isTaskChecked;
+
     public void CheckTaskProgress()
     {
         var finishedRequires = questRequirements.Where(r => r.currentAmount >= r.requiredAmount);
         isCompleted = finishedRequires.Count() == questRequirements.Count;
 
-        if (isCompleted)
+        if (isCompleted && !isTaskChecked)
+        {
             Debug.Log("Quest Completed!");
+            QuestUI.Instance.QuestCompletedText.SetActive(true);
+            isTaskChecked = true;
+
+            // Set the QuestCompletedText to inactive after 2 seconds
+            QuestUI.Instance.StartCoroutine(DeactivateQuestCompletedText());
+        }
     }
 
     // Get the name of quest requirements
@@ -82,5 +92,11 @@ public class QuestData_SO : ScriptableObject
             InventoryManager.Instance.inventoryUI.RefreshUI();
             InventoryManager.Instance.actionUI.RefreshUI();
         }
+    }
+
+    IEnumerator DeactivateQuestCompletedText()
+    {
+        yield return new WaitForSeconds(2f);
+        QuestUI.Instance.QuestCompletedText.SetActive(false);
     }
 }

@@ -5,12 +5,16 @@ public class QuestUI : Singleton<QuestUI>
 {
     [Header("Elements")]
     public GameObject questPanel;
+    public GameObject SideQuestPanel;
     public GameObject itemTooltip;
+    public GameObject QuestCompletedText;
     bool isOpen;
 
     [Header("Quest Name")]
     public RectTransform questListTransform;
+    public RectTransform sideQuestListTransform;
     public QuestNameBtn questNameBtn;
+    public QuestNameBtn sideQuestNameBtn;
 
     [Header("Quest Content")]
     public Text questContentTxt;
@@ -22,6 +26,11 @@ public class QuestUI : Singleton<QuestUI>
     [Header("Rewards")]
     public RectTransform rewardsTransform;
     public ItemUI rewardUI;
+
+    void Start()
+    {
+        SetUpSideQuestList();
+    }
 
     void Update()
     {
@@ -54,6 +63,18 @@ public class QuestUI : Singleton<QuestUI>
             var newTask = Instantiate(questNameBtn, questListTransform);
             newTask.SetUpNameBtn(task.questData);
             newTask.questContentTxt = questContentTxt;
+        }
+    }
+
+    public void SetUpSideQuestList()
+    {
+        foreach (Transform item in sideQuestListTransform)
+            Destroy(item.gameObject);
+
+        foreach (var task in QuestManager.Instance.questTasks)
+        {
+            var newTask = Instantiate(sideQuestNameBtn, sideQuestListTransform);
+            newTask.SetUpNameBtn(task.questData);
         }
     }
 
