@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 public class SeYu_PatrolState : EnemyBaseState    //Ñ²Âß×´Ì¬
@@ -44,7 +45,6 @@ public class SeYu_PatrolState : EnemyBaseState    //Ñ²Âß×´Ì¬
 
 public class SeYu_ChaseState : EnemyBaseState
 {
-
     public override void OnEnter(Enemy enemy)
     {
         currentEnemy = enemy;
@@ -69,7 +69,5 @@ public class SeYu_ChaseState : EnemyBaseState
 
     public override void PhysicsUpdate() { }
     public override void OnExit()
-    {
-        //TODD: ¶¯»­ÇÐ»»
-    }
+    { }
 }

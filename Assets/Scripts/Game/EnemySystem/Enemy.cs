@@ -1,4 +1,5 @@
 using Cinemachine;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -72,7 +73,6 @@ public class Enemy : MonoBehaviour
         currentState.LogicUpdate();
 
         horizontal = target.transform.position.x - transform.position.x;
-
         if (horizontal < 0)
         {
             enemySprite.flipX = false;
@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour
         {
             QuestManager.Instance.UpdateQuestProgress(gameObject.name, 1);
             InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
-            Destroy(gameObject);
+            StartCoroutine(AdjustFOVAndDeactivate());
         }
     }
     private void FixedUpdate()
@@ -141,4 +141,23 @@ public class Enemy : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
+
+    private IEnumerator AdjustFOVAndDeactivate()
+    {
+        float duration = 1.0f;
+        float startFOV = playerCam.m_Lens.FieldOfView;
+        float targetFOV = 40f;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            playerCam.m_Lens.FieldOfView = Mathf.Lerp(startFOV, targetFOV, elapsedTime / duration);
+            yield return null; // Wait for the next frame
+        }
+
+        playerCam.m_Lens.FieldOfView = targetFOV;
+        gameObject.SetActive(false); // Deactivate the enemy after FOV adjustment
+    }
+
 }
