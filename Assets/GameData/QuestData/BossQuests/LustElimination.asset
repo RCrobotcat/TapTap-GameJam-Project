@@ -18,7 +18,7 @@ MonoBehaviour:
   isCompleted: 0
   isFinished: 0
   questRequirements:
-  - name: Lust_Sheep
+  - name: Lust_Rabbit
     requiredAmount: 1
     currentAmount: 0
   questRewards: []

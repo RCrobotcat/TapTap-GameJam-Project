@@ -67,6 +67,11 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
                 PlayerController.Instance.equipRage = false;
             }
         }
+        /*else if(!PlayerController.Instance.equipRage)
+        {
+            float add = RageLightCost * Time.deltaTime;
+            this.SendCommand(new PlayerLightChangeCommand(add));
+        }*/
     }
 
     void HandleStaminaChange()
