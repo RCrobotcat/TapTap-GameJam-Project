@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2466889300881534851}
   - component: {fileID: 7517441368926867355}
   - component: {fileID: 5583488464297773687}
+  - component: {fileID: 3654022732683439596}
   m_Layer: 0
-  m_Name: Magic_Rabbit
+  m_Name: Magic_Flower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,3 +129,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.55, y: 6.04, z: 0.5}
   m_Center: {x: 0.19, y: -2.01, z: 0}
+--- !u!114 &3654022732683439596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4874923236536491478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a996c3ce596586449ba8ebea1b5557a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackRange: 3
+  attackDamage: 0.5
+  attackGap: 1
+  existTime: 5
