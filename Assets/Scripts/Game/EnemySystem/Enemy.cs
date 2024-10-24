@@ -5,22 +5,31 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public Animator anim;
+    [HideInInspector] public NavMeshAgent agent;
+    [HideInInspector] public Animator anim;
 
-    public Vector3 trans;     //怪物坐标
-    public GameObject target;    //获取人物组件
+    [Header("Rabbit辅助参数")]
+    public Vector3 trans;                //怪物坐标
+    [HideInInspector] public GameObject target;            //获取人物组件
+    public Vector3 attackPosition;       //要攻击的坐标
+    public GameObject MagicPrefab;       //魔法攻击预制体
+    public float MagicAttackDuration;      //控制攻击间隔
+    [HideInInspector] public float MagicAttackCounter;        //魔法攻击时间计数器
 
     [Header("基础属性")]
     public float chaseRange;        //检测范围
+    public float baseAttackRange;       //基础物理攻击范围
     public Vector3 randomPosition;
     public float EnemyMaxHealth; //怪物生命值
     float EnemyCurrentHealth;
+    public float baseAttackDuration;    //基础攻击间隔
+    float baseAttackCounter;
+    public float baseAttackDamage;      //基础攻击伤害
 
     [Header("状态")]
-    public bool isChasing;          //是否发起追击
-    public bool isPatrol;           //是否在巡逻
     public bool isArrive;
+    public bool isAttack;          //是否在攻击
+    public bool beAttacking;       //是否可以释放一次攻击
 
     [Header("状态机")]
     private EnemyBaseState currentState;   //当前状态
@@ -32,7 +41,6 @@ public class Enemy : MonoBehaviour
     SpriteRenderer enemySprite;
 
     float horizontal, vertical;
-
     public float currentHealth
     {
         get
@@ -40,12 +48,16 @@ public class Enemy : MonoBehaviour
             return EnemyCurrentHealth;
         }
     }
+    bool isUpdateQuest = false;
 
-    protected virtual void Awake() { }
+    protected virtual void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
+    }
+
     private void Start()
     {
-        anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
 
@@ -55,6 +67,8 @@ public class Enemy : MonoBehaviour
 
         EnemyCurrentHealth = EnemyMaxHealth;
         enemySprite = GetComponent<SpriteRenderer>();
+
+        baseAttackCounter = baseAttackDuration;
     }
 
     private void OnEnable()
@@ -84,11 +98,28 @@ public class Enemy : MonoBehaviour
 
         if (EnemyCurrentHealth <= 0)
         {
-            QuestManager.Instance.UpdateQuestProgress(gameObject.name, 1);
+            if (!isUpdateQuest)
+            {
+                QuestManager.Instance.UpdateQuestProgress(gameObject.name, 1);
+                isUpdateQuest = true;
+            }
             InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
             StartCoroutine(AdjustFOVAndDeactivate());
         }
+
+        //攻击计数器
+        if (MagicAttackCounter <= MagicAttackDuration)
+        {
+            MagicAttackCounter += Time.deltaTime;
+        }
+        else
+        {
+            beAttacking = true;
+        }
+
+        HandleBaseAttackPlayer();
     }
+
     private void FixedUpdate()
     {
         currentState.PhysicsUpdate();
@@ -136,6 +167,24 @@ public class Enemy : MonoBehaviour
         CinemachineShake.Instance.shakingCamera(5f, 0.3f);
     }
 
+    public void HandleBaseAttackPlayer()
+    {
+        float distanceToPlayer = Vector3.Distance(target.transform.position, transform.position);
+
+        if (baseAttackCounter > 0)
+        {
+            baseAttackCounter -= Time.deltaTime;
+        }
+        else
+        {
+            if (distanceToPlayer <= baseAttackRange)
+            {
+                PlayerController.Instance.TakeDamage(baseAttackDamage);
+            }
+            baseAttackCounter = baseAttackDuration;
+        }
+    }
+
     private void OnDrawGizmosSelected() // 绘制警戒半径
     {
         Gizmos.color = Color.red;
@@ -159,5 +208,4 @@ public class Enemy : MonoBehaviour
         playerCam.m_Lens.FieldOfView = targetFOV;
         gameObject.SetActive(false); // Deactivate the enemy after FOV adjustment
     }
-
 }

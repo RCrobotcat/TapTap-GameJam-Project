@@ -1,3 +1,4 @@
+using QFramework;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
@@ -221,6 +222,11 @@ public class PlayerController : Singleton<PlayerController>
         return (float)coreDamage;
     }
     #endregion
+
+    public void TakeDamage(float damage)
+    {
+        PlayerNumController.Instance.SendCommand(new PlayerLightChangeCommand(-damage));
+    }
 
     // Draw the detection range
     private void OnDrawGizmosSelected()
