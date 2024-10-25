@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HomeBarScene/HomeBarScene.unity
     guid: f9942abc5c717ff40937ecbcc968565e
+  - enabled: 1
+    path: Assets/Scenes/ChurchScene/ChurchScene.unity
+    guid: 26fe09a83be30994496696e219954958
+  - enabled: 1
+    path: Assets/Scenes/DungeonScene/DungeonScene.unity
+    guid: 4aa1f54a83ecad740b9eeacc64d584ba
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e2e7c48956151804786cb5918ed1be08, type: 2}

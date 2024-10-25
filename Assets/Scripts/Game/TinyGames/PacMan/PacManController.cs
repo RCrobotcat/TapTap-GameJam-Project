@@ -1,4 +1,3 @@
-using QFramework;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -81,10 +80,5 @@ public class PacManController : Singleton<PacManController>
 
         Vector3 vectorRotateToCameraSpace = CamForwardZProduct + CamRightXProduct;
         return vectorRotateToCameraSpace;
-    }
-
-    public void TakeDamage(float damage)
-    {
-        PlayerNumController.Instance.SendCommand(new PlayerLightChangeCommand(-damage));
     }
 }
