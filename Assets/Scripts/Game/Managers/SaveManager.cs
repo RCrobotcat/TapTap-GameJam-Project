@@ -94,7 +94,6 @@ public class SaveManager : Singleton<SaveManager>
         }
     }
 
-
     public void Save(Object data, string key)
     {
         var jsonData = JsonUtility.ToJson(data, true);
