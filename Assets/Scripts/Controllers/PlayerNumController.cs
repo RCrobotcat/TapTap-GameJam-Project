@@ -17,6 +17,8 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
     [Header("Player Nums Settings")]
     public float RunStaminaCost;
     public float RageLightCost;
+    public float LightAddition; // Light addition when player complete a quest
+    [HideInInspector] public float currentMaxLight = 5.0f;
 
     public IPlayerNumModel mModel;
 
@@ -62,7 +64,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         {
             float cost = RageLightCost * Time.deltaTime * -1f;
             this.SendCommand(new PlayerLightChangeCommand(cost));
-            if(mModel.PlayerLight.Value <= 0.5f)
+            if (mModel.PlayerLight.Value <= 0.5f)
             {
                 PlayerController.Instance.equipRage = false;
             }
@@ -102,7 +104,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
     void UpdateLightBar()
     {
-        float SliderPercent = (float)mModel.PlayerLight.Value / 5.0f;
+        float SliderPercent = (float)mModel.PlayerLight.Value / currentMaxLight;
         LightSlider.DOFillAmount(SliderPercent, 0.3f);
     }
 
@@ -110,6 +112,32 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
     {
         this.SendCommand(new PlayerStaminaChangeCommand(val));
     }
+
+    // Update the player max Light
+    public void MaxLightUpdate()
+    {
+        currentMaxLight += LightAddition;
+        float lightAddScale = LightAddition / currentMaxLight;
+        Vector3 endScale = new Vector3(1 + lightAddScale, 1, 1);
+        Vector3 originalPos = PlayerLightBar.position;
+        Vector3 endPosition = originalPos + new Vector3(20, 0, 0);
+        PlayerLightBar.DOMove(endPosition, 0.5f);
+        PlayerLightBar.DOScale(endScale, 0.5f);
+    }
+
+    #region Save/Load Player Nums
+    public void SavePlayerNums()
+    {
+        var Storage = this.GetUtility<Istorage>();
+        Storage.SavePlayerNums("PlayerLight", mModel.PlayerLight.Value);
+    }
+
+    public void LoadPlayerNums()
+    {
+        var Storage = this.GetUtility<Istorage>();
+        Storage.LoadPlayerNums("PlayerLight");
+    }
+    #endregion
 
     public IArchitecture GetArchitecture()
     {

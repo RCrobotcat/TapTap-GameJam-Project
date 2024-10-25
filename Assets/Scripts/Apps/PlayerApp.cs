@@ -6,5 +6,6 @@ public class PlayerApp : Architecture<PlayerApp>
     {
         this.RegisterModel<IPlayerNumModel>(new PlayerNumModel());
         this.RegisterSystem<IPlayerNumSystem>(new PlayerNumSystem());
+        this.RegisterUtility<Istorage>(new storage());
     }
 }

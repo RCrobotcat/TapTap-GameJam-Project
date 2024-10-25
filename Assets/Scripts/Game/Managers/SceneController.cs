@@ -12,11 +12,13 @@ public class SceneController : Singleton<SceneController>
     public IEnumerator Transition(string SceneName)
     {
         SaveManager.Instance.SavePlayerData();
+        PlayerNumController.Instance.SavePlayerNums();
         if (SceneName != SceneManager.GetActiveScene().name)
         {
             yield return SceneManager.LoadSceneAsync(SceneName);
             SaveManager.Instance.LoadPlayerData();
-            yield break; // Exit the coroutine
+            PlayerNumController.Instance.LoadPlayerNums();
+            yield break;
         }
     }
 }

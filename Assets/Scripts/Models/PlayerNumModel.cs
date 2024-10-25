@@ -38,7 +38,7 @@ public class PlayerNumModel : AbstractModel, IPlayerNumModel
     public void PlayerLightChange(float changeVal)
     {
         float currentLight = PlayerLight.Value + changeVal;
-        PlayerLight.Value = Mathf.Clamp(currentLight, 0, 5.0f);
+        PlayerLight.Value = Mathf.Clamp(currentLight, 0, PlayerNumController.Instance.currentMaxLight);
     }
 
     protected override void OnInit() { }

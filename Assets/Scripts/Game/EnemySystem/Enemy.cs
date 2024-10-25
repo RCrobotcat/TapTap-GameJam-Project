@@ -101,6 +101,7 @@ public class Enemy : MonoBehaviour
             if (!isUpdateQuest)
             {
                 QuestManager.Instance.UpdateQuestProgress(gameObject.name, 1);
+                PlayerNumController.Instance.MaxLightUpdate();
                 isUpdateQuest = true;
             }
             InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
