@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class SaveManager : Singleton<SaveManager>
@@ -24,7 +26,25 @@ public class SaveManager : Singleton<SaveManager>
         if (Input.GetKeyDown(KeyCode.J))
         {
             SavePlayerData();
+            SavePlayerPosition();
+            QuestUI.Instance.SaveCompletedText.SetActive(true);
+
+            // Set the QuestCompletedText to inactive after 2 seconds
+            StartCoroutine(DeactivateSaveCompletedText());
         }
+
+        // For Saving Logic Testing
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadPlayerData();
+            LoadPlayerPosition();
+        }
+    }
+
+    IEnumerator DeactivateSaveCompletedText()
+    {
+        yield return new WaitForSeconds(2f);
+        QuestUI.Instance.SaveCompletedText.SetActive(false);
     }
 
     public void SavePlayerData()
@@ -41,22 +61,44 @@ public class SaveManager : Singleton<SaveManager>
         QuestManager.Instance.LoadQuestManager();
     }
 
+    public void SavePlayerPosition()
+    {
+        PlayerPrefs.SetFloat("PlayerX", PlayerController.Instance.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerY", PlayerController.Instance.transform.position.y);
+        PlayerPrefs.SetFloat("PlayerZ", PlayerController.Instance.transform.position.z);
+    }
+
     public void LoadPlayerPosition()
     {
         if (PlayerPrefs.HasKey("PlayerX") && PlayerPrefs.HasKey("PlayerY") && PlayerPrefs.HasKey("PlayerZ"))
         {
-            PlayerController.Instance.transform.position = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
-                PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+            Vector3 savedPosition = new Vector3(
+                PlayerPrefs.GetFloat("PlayerX"),
+                PlayerPrefs.GetFloat("PlayerY"),
+                PlayerPrefs.GetFloat("PlayerZ")
+            );
+
+            // Ensure the NavMeshAgent component is referenced
+            NavMeshAgent agent = PlayerController.Instance.agent;
+
+            if (agent != null)
+            {
+                // Use Warp to move the agent to the saved position
+                agent.Warp(savedPosition);
+            }
+            else
+            {
+                // If there's no NavMeshAgent, set the position directly
+                PlayerController.Instance.transform.position = savedPosition;
+            }
         }
     }
+
 
     public void Save(Object data, string key)
     {
         var jsonData = JsonUtility.ToJson(data, true);
         PlayerPrefs.SetString(key, jsonData);
-        PlayerPrefs.SetFloat("PlayerX", PlayerController.Instance.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerY", PlayerController.Instance.transform.position.y);
-        PlayerPrefs.SetFloat("PlayerZ", PlayerController.Instance.transform.position.z);
         PlayerPrefs.SetString(sceneName, SceneManager.GetActiveScene().name); // save scene name
         PlayerPrefs.Save(); // save to disk
 

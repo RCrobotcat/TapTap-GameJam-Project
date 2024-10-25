@@ -461,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298202556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26149568, y: 1.6440993e-16, z: -3.2501925e-16, w: 0.96520466}
+  m_LocalRotation: {x: 0.26149568, y: -1.6440993e-16, z: 3.2501925e-16, w: 0.96520466}
   m_LocalPosition: {x: -5.37, y: 8.730942, z: -43.095074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -990,7 +990,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423087530}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26149568, y: 1.6440993e-16, z: -3.2501925e-16, w: 0.96520466}
+  m_LocalRotation: {x: 0.26149568, y: -1.6440993e-16, z: 3.2501925e-16, w: 0.96520466}
   m_LocalPosition: {x: -5.37, y: 8.730942, z: -43.095074}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1086,10 +1086,6 @@ PrefabInstance:
     - target: {fileID: 1576463708559823477, guid: 0ca6d15bb96b9e34f9999e06d8e89cc4, type: 3}
       propertyPath: m_Name
       value: Lust_Sheep
-      objectReference: {fileID: 0}
-    - target: {fileID: 1576463708559823477, guid: 0ca6d15bb96b9e34f9999e06d8e89cc4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5686377170691090848, guid: 0ca6d15bb96b9e34f9999e06d8e89cc4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1554,10 +1550,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 884796329}
     m_Modifications:
-    - target: {fileID: -9212077747061640532, guid: fca2479fbd4127148a5218ae13a4c0c0, type: 3}
-      propertyPath: EnemyMaxHealth
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 1576463708559823477, guid: fca2479fbd4127148a5218ae13a4c0c0, type: 3}
       propertyPath: m_Name
       value: Lust_Rabbit
@@ -1621,19 +1613,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 139.42
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -30.0344
       objectReference: {fileID: 0}
     - target: {fileID: 6103559466117653539, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_Pivot.x

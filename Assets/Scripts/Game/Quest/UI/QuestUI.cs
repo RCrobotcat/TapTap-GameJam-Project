@@ -8,6 +8,7 @@ public class QuestUI : Singleton<QuestUI>
     public GameObject SideQuestPanel;
     public GameObject itemTooltip;
     public GameObject QuestCompletedText;
+    public GameObject SaveCompletedText;
     bool isOpen;
 
     [Header("Quest Name")]
