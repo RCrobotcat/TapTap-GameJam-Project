@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class TransitionPos : MonoBehaviour
 {
+    [Header("Transition Info")]
     public string sceneToTransit;
+    public TransitionDestination.DestinationTag destinationTag;
 
     public GameObject TipsText;
 
@@ -11,7 +13,7 @@ public class TransitionPos : MonoBehaviour
     void Update()
     {
         if (_inTrigger && Input.GetKeyDown(KeyCode.T))
-            StartCoroutine(SceneController.Instance.Transition(sceneToTransit));
+            SceneController.Instance.TransitionToDestination(sceneToTransit, destinationTag);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -19,8 +21,6 @@ public class TransitionPos : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             TipsText.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.T))
-                StartCoroutine(SceneController.Instance.Transition(sceneToTransit));
         }
     }
 

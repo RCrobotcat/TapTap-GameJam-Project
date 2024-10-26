@@ -1,5 +1,7 @@
+using Cinemachine;
 using QFramework;
 using System.Collections;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +12,11 @@ public class PlayerController : Singleton<PlayerController>
     Animator animator;
     float horizontal, vertical;
     float stopDistance;
+
+    [Header("Camera Settings")]
+    CinemachineVirtualCamera PlayerCam;
+    public Transform followPoint;
+    public Transform lookAtPoint;
 
     [Header("Player Settings")]
     public float RunSpeedMultiple;
@@ -41,6 +48,14 @@ public class PlayerController : Singleton<PlayerController>
 
         stopDistance = agent.stoppingDistance;
         originalSpeed = agent.speed;
+
+        PlayerCam = FindObjectOfType<CinemachineVirtualCamera>();
+    }
+
+    void Start()
+    {
+        PlayerCam.Follow = followPoint;
+        PlayerCam.LookAt = lookAtPoint;
     }
 
     void Update()

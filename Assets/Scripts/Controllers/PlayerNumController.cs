@@ -131,6 +131,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         var Storage = this.GetUtility<Istorage>();
         Storage.SavePlayerNums("PlayerMaxLight", currentMaxLight);
         Storage.SavePlayerNums("PlayerLight", mModel.PlayerLight.Value);
+        Debug.Log("Player Nums Saved!");
     }
 
     public void LoadPlayerNums()

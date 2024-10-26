@@ -199,12 +199,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 0}
   isRunning: 0
+  followPoint: {fileID: 4085880111474442242}
+  lookAtPoint: {fileID: 6099591179391383893}
   RunSpeedMultiple: 2
   SlashStaminaCost: -3
   playerSlashEffect: {fileID: 0}
   slashEffectPos_left: {fileID: 2572231585898527160}
   slashEffectPos_right: {fileID: 3444208895738304747}
   detectRange: 10
+  equipRage: 0
 --- !u!1 &4967234017040909172
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +444,7 @@ Transform:
   m_GameObject: {fileID: 9057395408816274658}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15.9, z: -20.4}
+  m_LocalPosition: {x: 0, y: 19.69, z: -22.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
