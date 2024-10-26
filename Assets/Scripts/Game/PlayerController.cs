@@ -1,7 +1,6 @@
 using Cinemachine;
 using QFramework;
 using System.Collections;
-using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -21,6 +20,7 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Player Settings")]
     public float RunSpeedMultiple;
     float originalSpeed;
+    [HideInInspector] public bool combatWithEnemy; // Player combat with enemy
 
     SpriteRenderer playerSprite;
 
@@ -241,6 +241,7 @@ public class PlayerController : Singleton<PlayerController>
     public void TakeDamage(float damage)
     {
         PlayerNumController.Instance.SendCommand(new PlayerLightChangeCommand(-damage));
+        CinemachineShake.Instance.shakingCamera(3f, 0.3f);
     }
 
     // Draw the detection range

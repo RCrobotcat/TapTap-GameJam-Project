@@ -12,13 +12,14 @@ public class TransitionPos : MonoBehaviour
 
     void Update()
     {
-        if (_inTrigger && Input.GetKeyDown(KeyCode.T))
+        if (_inTrigger && Input.GetKeyDown(KeyCode.T)
+            && !PlayerController.Instance.combatWithEnemy)
             SceneController.Instance.TransitionToDestination(sceneToTransit, destinationTag);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !PlayerController.Instance.combatWithEnemy)
         {
             TipsText.SetActive(true);
         }
@@ -26,13 +27,17 @@ public class TransitionPos : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        _inTrigger = true;
+        if (other.CompareTag("Player"))
+            _inTrigger = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _inTrigger = false;
+
         if (other.CompareTag("Player"))
+        {
+            _inTrigger = false;
             TipsText.SetActive(false);
+        }
     }
 }

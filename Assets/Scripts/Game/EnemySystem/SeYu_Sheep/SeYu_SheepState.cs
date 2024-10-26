@@ -13,7 +13,7 @@ public class SeYu_PatrolState : EnemyBaseState    //巡逻状态
         if (currentEnemy.isArrive)
         {
             //获取新的坐标
-            currentEnemy.randomPosition = new Vector3(currentEnemy.trans.x + Random.Range(-5f, 5f), 0f, currentEnemy.trans.z + Random.Range(-5f, 5f));
+            currentEnemy.randomPosition = new Vector3(currentEnemy.trans.x + Random.Range(-3f, 3f), 0f, currentEnemy.trans.z + Random.Range(-3f, 3f));
             currentEnemy.isArrive = false;
         }
         if ((currentEnemy.transform.position.x != currentEnemy.randomPosition.x) && (currentEnemy.transform.position.z != currentEnemy.randomPosition.z))

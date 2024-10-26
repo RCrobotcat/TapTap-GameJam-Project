@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    private void Start()
+    void Start()
     {
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -105,6 +105,7 @@ public class Enemy : MonoBehaviour
                 isUpdateQuest = true;
             }
             InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
+            PlayerController.Instance.combatWithEnemy = false;
             StartCoroutine(AdjustFOVAndDeactivate());
         }
 
@@ -131,13 +132,15 @@ public class Enemy : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(target.transform.position, transform.position);
         if (distanceToPlayer <= chaseRange)
         {
-            playerCam.m_Lens.FieldOfView = Mathf.Lerp(playerCam.m_Lens.FieldOfView, 70, Time.deltaTime * 1.5f);
+            playerCam.m_Lens.FieldOfView = Mathf.Lerp(playerCam.m_Lens.FieldOfView, 57, Time.deltaTime * 1.5f);
+            PlayerController.Instance.combatWithEnemy = true;
             InventoryManager.Instance.EnemyHealthPanel.SetActive(true);
             InventoryManager.Instance.EnemyHealthPanel.GetComponent<EnemyHealthUI>().UpdateHealthBar(EnemyCurrentHealth, EnemyMaxHealth);
             return true;
         }
         else
         {
+            PlayerController.Instance.combatWithEnemy = false;
             playerCam.m_Lens.FieldOfView = Mathf.Lerp(playerCam.m_Lens.FieldOfView, 40, Time.deltaTime * 1.5f);
             InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
             return false;

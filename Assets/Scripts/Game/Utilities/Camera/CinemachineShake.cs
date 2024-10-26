@@ -17,6 +17,7 @@ public class CinemachineShake : Singleton<CinemachineShake>
     private void Start()
     {
         shakeTimer = 0f;
+        cinemachineVirtualCamera.m_Lens.FieldOfView = 40;
     }
 
     // Update is called once per frame
