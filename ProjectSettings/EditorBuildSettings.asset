@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/HomeBarScene/HomeBarScene.unity
     guid: f9942abc5c717ff40937ecbcc968565e
   - enabled: 1
+    path: Assets/Scenes/BarSecondFloorScene/BarSecondFloorScene.unity
+    guid: cca37a9593e73ef4785f29cd95ead118
+  - enabled: 1
     path: Assets/Scenes/ChurchScene/ChurchScene.unity
     guid: 26fe09a83be30994496696e219954958
   - enabled: 1
