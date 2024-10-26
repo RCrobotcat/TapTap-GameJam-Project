@@ -54,8 +54,12 @@ public class PlayerController : Singleton<PlayerController>
 
     void Start()
     {
-        PlayerCam.Follow = followPoint;
-        PlayerCam.LookAt = lookAtPoint;
+        if (PlayerCam != null)
+        {
+            PlayerCam.Follow = followPoint;
+            PlayerCam.LookAt = lookAtPoint;
+
+        }
     }
 
     void Update()

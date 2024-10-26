@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneController : Singleton<SceneController>
 {
     public GameObject PlayerPrefab;
+    public SceneFader SceneFaderPrefab;
 
     protected override void Awake()
     {
@@ -17,13 +18,35 @@ public class SceneController : Singleton<SceneController>
         StartCoroutine(Transition(SceneName, destinationTag));
     }
 
+    public void HandleTransitionToScene(string SceneName)
+    {
+        StartCoroutine(TransitionToScene(SceneName));
+    }
+
+    IEnumerator TransitionToScene(string SceneName)
+    {
+        SceneFader fader = Instantiate(SceneFaderPrefab);
+
+        if (SceneName != SceneManager.GetActiveScene().name)
+        {
+            yield return fader.FadeOut(1.3f);
+            yield return SceneManager.LoadSceneAsync(SceneName);
+
+            yield return fader.FadeIn(1.3f);
+            yield break;
+        }
+    }
+
     IEnumerator Transition(string SceneName, TransitionDestination.DestinationTag destinationTag)
     {
         SaveManager.Instance.SavePlayerData();
         PlayerNumController.Instance.SavePlayerNums();
 
+        SceneFader fader = Instantiate(SceneFaderPrefab);
+
         if (SceneName != SceneManager.GetActiveScene().name)
         {
+            yield return fader.FadeOut(1.3f);
             yield return SceneManager.LoadSceneAsync(SceneName);
 
             TransitionDestination destination = GetDestination(destinationTag);
@@ -38,6 +61,7 @@ public class SceneController : Singleton<SceneController>
 
             SaveManager.Instance.LoadPlayerData();
             PlayerNumController.Instance.LoadPlayerNums();
+            yield return fader.FadeIn(1.3f);
             yield break;
         }
     }
