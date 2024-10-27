@@ -127,7 +127,7 @@ public class PlayerController : Singleton<PlayerController>
 
         if (weapon != null)
         {
-            if (weapon.itemName == "Rage")
+            if (weapon.name == "Rage")
                 equipRage = true;
             else equipRage = false;
             playerSlashEffect = weapon.WeaponPrefab;

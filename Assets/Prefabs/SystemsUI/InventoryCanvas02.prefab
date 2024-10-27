@@ -4506,7 +4506,7 @@ MonoBehaviour:
   lightTxt: {fileID: 8467376347778441706}
   lightAddTxt: {fileID: 7119718491100846772}
   RunStaminaCost: 3
-  RageLightCost: 0.3
+  RageLightCost: 0.1
   LightAddition: 1
   currentMaxLight: 5
 --- !u!1 &8653786923257875250

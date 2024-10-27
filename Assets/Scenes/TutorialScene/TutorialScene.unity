@@ -1484,19 +1484,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 139.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -30.0344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6103559466117653539, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_Pivot.x
@@ -3965,6 +3965,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a1975d58d3f7a4995282435d8a56a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicWeapon: {fileID: 0}
+  rageWeapon: {fileID: 0}
 --- !u!1 &1904400766
 GameObject:
   m_ObjectHideFlags: 0

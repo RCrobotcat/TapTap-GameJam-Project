@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    string sceneName = "";
+    string sceneName = "currentScene";
 
     public string SceneName
     {
@@ -21,7 +21,7 @@ public class SaveManager : Singleton<SaveManager>
         DontDestroyOnLoad(this);
     }
 
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
@@ -41,7 +41,7 @@ public class SaveManager : Singleton<SaveManager>
         }
     }
 
-    IEnumerator DeactivateSaveCompletedText()
+    public IEnumerator DeactivateSaveCompletedText()
     {
         yield return new WaitForSeconds(2f);
         QuestUI.Instance.SaveCompletedText.SetActive(false);
@@ -68,6 +68,7 @@ public class SaveManager : Singleton<SaveManager>
         PlayerPrefs.SetFloat("PlayerX", PlayerController.Instance.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", PlayerController.Instance.transform.position.y);
         PlayerPrefs.SetFloat("PlayerZ", PlayerController.Instance.transform.position.z);
+        PlayerPrefs.Save();
     }
 
     public void LoadPlayerPosition()
@@ -100,6 +101,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         var jsonData = JsonUtility.ToJson(data, true);
         PlayerPrefs.SetString(key, jsonData);
+        PlayerPrefs.DeleteKey(sceneName); // delete scene name
         PlayerPrefs.SetString(sceneName, SceneManager.GetActiveScene().name); // save scene name
         PlayerPrefs.Save(); // save to disk
 
