@@ -129,6 +129,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         PlayerLightBar.DOScale(endScale, 0.5f);
         UpdateLightBar();
         lightAddTxt.gameObject.SetActive(true);
+        SavePlayerNums();
         StartCoroutine(DeactivateLightAddTxt());
     }
 

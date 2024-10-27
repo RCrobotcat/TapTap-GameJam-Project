@@ -6,7 +6,7 @@ public class ItemPickUp : MonoBehaviour
 
     void Start()
     {
-        if (itemData.isPicked)
+        if (itemData.isPicked || InventoryManager.Instance.ContainsRage())
         {
             Destroy(gameObject);
         }
@@ -14,7 +14,7 @@ public class ItemPickUp : MonoBehaviour
 
     void Update()
     {
-        if (itemData.isPicked)
+        if (itemData.isPicked || InventoryManager.Instance.ContainsRage())
         {
             Destroy(gameObject);
         }

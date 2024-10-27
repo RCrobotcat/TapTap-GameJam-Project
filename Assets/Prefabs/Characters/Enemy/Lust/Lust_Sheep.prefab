@@ -206,7 +206,7 @@ MonoBehaviour:
   chaseRange: 15
   baseAttackRange: 7
   randomPosition: {x: 0, y: 0, z: 0}
-  EnemyMaxHealth: 200
+  EnemyMaxHealth: 100
   baseAttackDuration: 1
   baseAttackDamage: 0.3
   isArrive: 0

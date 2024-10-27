@@ -92,12 +92,17 @@ public class InventoryManager : Singleton<InventoryManager>
     }
     #endregion
 
-    /*public void UpdateStatusText(int health, int min, int max, int defence)
+    public bool ContainsRage()
     {
-        healthText.text = health.ToString("00");
-        attaclText.text = min + " - " + max;
-        DefenceText.text = defence.ToString("00");
-    }*/
+        foreach (var item in inventoryData.items)
+        {
+            if (item.itemData != null && item.itemData.name == "Rage")
+                return true;
+        }
+        if (actionData.items[0].itemData != null && actionData.items[0].itemData.name == "Rage")
+            return true;
+        return false;
+    }
 
     #region Judge the item being dragged is inside the range of the target slot
     public bool CheckInInventoryUI(Vector3 position)

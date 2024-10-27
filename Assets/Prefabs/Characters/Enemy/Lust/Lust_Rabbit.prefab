@@ -22,7 +22,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5686377170691090848
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   chaseRange: 15
   baseAttackRange: 7
   randomPosition: {x: 0, y: 0, z: 0}
-  EnemyMaxHealth: 300
+  EnemyMaxHealth: 50
   baseAttackDuration: 1
   baseAttackDamage: 0.3
   isArrive: 0
