@@ -21,4 +21,6 @@ MonoBehaviour:
   - name: Lust
     requiredAmount: 1
     currentAmount: 0
-  questRewards: []
+  questRewards:
+  - itemData: {fileID: 11400000, guid: f608d1cf595b13943ba41d9df94d3c85, type: 2}
+    amount: 1

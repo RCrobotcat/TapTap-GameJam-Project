@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2414647809460071768}
   - component: {fileID: 7414579678846791529}
   - component: {fileID: 4152972038328916049}
+  - component: {fileID: 1155314584592828719}
   m_Layer: 5
   m_Name: Progress
   m_TagString: Untagged
@@ -34,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 136.4, y: 0}
-  m_SizeDelta: {x: 75.849, y: 25.8936}
+  m_AnchoredPosition: {x: 128.85129, y: 0}
+  m_SizeDelta: {x: 90.9463, y: 25.8936}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7414579678846791529
 CanvasRenderer:
@@ -79,6 +80,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0/3
+--- !u!114 &1155314584592828719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110731384278119016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &9024297674707614391
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +107,7 @@ GameObject:
   - component: {fileID: 5778467302323627222}
   - component: {fileID: 88717874587939306}
   - component: {fileID: 3251451104246385075}
+  - component: {fileID: 2214422648052016233}
   m_Layer: 5
   m_Name: RequirementsTxt
   m_TagString: Untagged
@@ -172,3 +189,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcad546e22b2314ba3ef3c21ad6c082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2214422648052016233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9024297674707614391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1

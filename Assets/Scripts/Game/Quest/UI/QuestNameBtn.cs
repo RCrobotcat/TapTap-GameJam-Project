@@ -30,7 +30,7 @@ public class QuestNameBtn : MonoBehaviour
         currentQuestData = questData;
 
         if (questData.isFinished)
-            questNameTxt.text = questData.questName + " (Finished)";
+            questNameTxt.text = questData.questName + " (ÒÑÍê³É)";
         else questNameTxt.text = questData.questName;
     }
 }

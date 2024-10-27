@@ -4,6 +4,7 @@ public class SeYu_Scheduler : MonoBehaviour
 {
     public GameObject SeYu_Sheep;
     public GameObject SeYu_Rabbit_final;
+    public GameObject BlackShadow;
 
     public QuestData_SO SeYuQuest;
 
@@ -25,9 +26,11 @@ public class SeYu_Scheduler : MonoBehaviour
         // Already Defeated Lust
         if (SeYu_Dead)
         {
+            PlayerController.Instance.combatWithEnemy = false;
             SeYu_Sheep.SetActive(false);
             SeYu_Rabbit_final.SetActive(false);
             InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
+            BlackShadow.SetActive(true);
         }
     }
 }
