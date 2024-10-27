@@ -2,6 +2,7 @@ using QFramework;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System.Collections;
 
 public class PlayerNumController : Singleton<PlayerNumController>, IController
 {
@@ -13,6 +14,8 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
     public Transform PlayerLightBar;
     Image LightSlider;
+    public Text lightTxt;
+    public Text lightAddTxt;
 
     [Header("Player Nums Settings")]
     public float RunStaminaCost;
@@ -106,6 +109,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
     {
         float SliderPercent = (float)mModel.PlayerLight.Value / currentMaxLight;
         LightSlider.DOFillAmount(SliderPercent, 0.3f);
+        lightTxt.text = mModel.PlayerLight.Value.ToString("F1") + "/" + currentMaxLight.ToString("F1");
     }
 
     public void StaminaChange(float val)
@@ -123,6 +127,15 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         Vector3 endPosition = originalPos + new Vector3(20, 0, 0);
         PlayerLightBar.DOMove(endPosition, 0.5f);
         PlayerLightBar.DOScale(endScale, 0.5f);
+        UpdateLightBar();
+        lightAddTxt.gameObject.SetActive(true);
+        StartCoroutine(DeactivateLightAddTxt());
+    }
+
+    IEnumerator DeactivateLightAddTxt()
+    {
+        yield return new WaitForSeconds(2.0f);
+        lightAddTxt.gameObject.SetActive(false);
     }
 
     #region Save/Load Player Nums

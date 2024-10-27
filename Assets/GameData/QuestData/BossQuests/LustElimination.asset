@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a80ad76fdbb5e9b499e274556848bf4e, type: 3}
   m_Name: LustElimination
   m_EditorClassIdentifier: 
-  questName: Eliminates "Lust"
-  description: Eliminates "Lust" Boss.
+  questName: "\u6D88\u706D \"\u8272\u6B32\""
+  description: "\u6D88\u706D \"\u8272\u6B32\" , \u83B7\u53D6Light\u3002"
   isStarted: 0
   isCompleted: 0
   isFinished: 0
   questRequirements:
-  - name: Lust_Rabbit
+  - name: Lust
     requiredAmount: 1
     currentAmount: 0
   questRewards: []

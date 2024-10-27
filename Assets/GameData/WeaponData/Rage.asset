@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Rage
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Rage
+  itemName: "\u66B4\u6012"
   itemIcon: {fileID: -1160749230, guid: ca9540275ca284246ae467fc809ea356, type: 3}
   itemAmount: 1
   isPicked: 0
-  description: '"Rage"'
+  description: "\"\u66B4\u6012\""
   stackable: 0
   WeaponPrefab: {fileID: 8049750589784031866, guid: 5d9633d5d7785324e9de18e8243c48be, type: 3}
   WeaponData: {fileID: 11400000, guid: 8886d16857b09a140826c39783d21fbb, type: 2}

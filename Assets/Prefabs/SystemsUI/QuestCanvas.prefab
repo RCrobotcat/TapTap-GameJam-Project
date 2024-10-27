@@ -606,7 +606,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
     m_FontSize: 35
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 45
@@ -616,7 +616,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quest List
+  m_Text: "\u4EFB\u52A1\u5217\u8868"
 --- !u!114 &1475827695627654004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,9 +1184,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 997a43b767814dd0a7642ec9b78cba41, type: 3}
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
     m_FontSize: 45
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
@@ -1196,7 +1196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quests: (Press H to open quest panel)'
+  m_Text: "\u4EFB\u52A1\u5217\u8868: ( H \u6253\u5F00\u4EFB\u52A1\u8BE6\u60C5)"
 --- !u!114 &4356867989897924644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.10562229, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.97856116, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1302,7 +1302,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
     m_FontSize: 35
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
@@ -1312,7 +1312,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: "\u4EFB\u52A1\u8BE6\u60C5"
 --- !u!114 &1043053682541251265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.71108055, a: 1}
+  m_Color: {r: 0, g: 0.101961136, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1396,9 +1396,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
-    m_FontSize: 25
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 4beb055f07aaff244873dec698d0363e, type: 3}
+    m_FontSize: 28
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -1408,7 +1408,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quest Description Quest Description
+  m_Text: "\u9ED1\u5F71: \u4F60\u60F3\u770B\u6E05\u8FD9\u4E2A\u4E16\u754C\u5417? "
 --- !u!114 &635049550111804969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1497,7 +1497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9010694, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.6449672, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1507,7 +1507,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: d7cffddcbc0cc8f4ebe6e28eb9804082, type: 3}
     m_FontSize: 100
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 112
@@ -1517,7 +1517,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Save Completd!
+  m_Text: "\u4FDD\u5B58\u6210\u529F\uFF01"
 --- !u!114 &4262051569979811648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,7 +1720,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77128166194022842, guid: 2898912cfab63ba4d835dd2123d74ac2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 77128166194022842, guid: 2898912cfab63ba4d835dd2123d74ac2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1728,7 +1728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77128166194022842, guid: 2898912cfab63ba4d835dd2123d74ac2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 77128166194022842, guid: 2898912cfab63ba4d835dd2123d74ac2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1768,11 +1768,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 77128166194022842, guid: 2898912cfab63ba4d835dd2123d74ac2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 139.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 77128166194022842, guid: 2898912cfab63ba4d835dd2123d74ac2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -30.0344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 77128166194022842, guid: 2898912cfab63ba4d835dd2123d74ac2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1838,7 +1838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1168856019172991323, guid: 6bcd4a0503a28854783535e5de6e1728, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20
+      value: 32.066
       objectReference: {fileID: 0}
     - target: {fileID: 1168856019172991323, guid: 6bcd4a0503a28854783535e5de6e1728, type: 3}
       propertyPath: m_LocalPosition.x
