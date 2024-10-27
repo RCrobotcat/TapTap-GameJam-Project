@@ -15,14 +15,10 @@ MonoBehaviour:
   dialoguePieces:
   - ID: Piece01
     image: {fileID: 21300000, guid: eb7edecf7236d7442a712c51b454bdfa, type: 3}
-    text: "\u9ED1\u5F71: \u4F60\u60F3\u770B\u6E05\u8FD9\u4E2A\u4E16\u754C\u5417? "
+    text: "\u9ED1\u5F71: \u8BF7\u8FDB\u5165\u4F20\u9001\u95E8\u3002"
     questData: {fileID: 11400000, guid: 85dcf8abf5111584b8b17969c997aec2, type: 2}
     dialogueOption:
-    - text: "\u60F3"
-      targetID: 
-      takeQuest: 0
-      followPlayer: 0
-    - text: "\u4E0D\u60F3"
+    - text: ...
       targetID: 
       takeQuest: 0
       followPlayer: 0

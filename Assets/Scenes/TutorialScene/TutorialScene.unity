@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08972429, g: 0.07289461, b: 0.145565, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1020,15 +1020,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5290957237821893882, guid: d87db9b435a90154096747feb14ff191, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.66
+      value: -3.99
       objectReference: {fileID: 0}
     - target: {fileID: 5290957237821893882, guid: d87db9b435a90154096747feb14ff191, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.62
+      value: 47.87
       objectReference: {fileID: 0}
     - target: {fileID: 5290957237821893882, guid: d87db9b435a90154096747feb14ff191, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 27.44
+      value: 27.66
       objectReference: {fileID: 0}
     - target: {fileID: 5290957237821893882, guid: d87db9b435a90154096747feb14ff191, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2408,7 +2408,7 @@ GameObject:
   - component: {fileID: 1084971510}
   m_Layer: 3
   m_Name: BlackShadow
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
