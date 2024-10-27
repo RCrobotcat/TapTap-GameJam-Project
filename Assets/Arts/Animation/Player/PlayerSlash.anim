@@ -21,39 +21,37 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 8d086d9decccd60409620fa474fb5d82, type: 3}
+      value: {fileID: 21300000, guid: 8e404e4784cb9324ca8f235f6b2b1aaf, type: 3}
     - time: 0.05
-      value: {fileID: 21300000, guid: 9b42de7f833ed084f9797691bfd22b22, type: 3}
+      value: {fileID: 21300000, guid: 1a84ffbb873d4e042941cf039062347a, type: 3}
     - time: 0.1
-      value: {fileID: 21300000, guid: d89a0796d21d92b488b23e721fe44d1e, type: 3}
+      value: {fileID: 21300000, guid: 5bdb471767b9da94baefb7957c70b218, type: 3}
     - time: 0.15
-      value: {fileID: 21300000, guid: 5fdb40aa0d06db64d9a393aebbf6af86, type: 3}
+      value: {fileID: 21300000, guid: 4266eccebfcba6e4fb1436407d7c4805, type: 3}
     - time: 0.2
-      value: {fileID: 21300000, guid: 1b1627e0503d7e3429539c7672c052a0, type: 3}
+      value: {fileID: 21300000, guid: 231ba8fc5484d6e4ba1926e799fe81a3, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 5f31e3b541e6d4e46926750e1b2e1f70, type: 3}
+      value: {fileID: 21300000, guid: 5ac86dd5ed3bd9842bad84c3e5477bc7, type: 3}
     - time: 0.3
-      value: {fileID: 21300000, guid: 3c3cc15b0ad96974c9f68693ea752bb5, type: 3}
+      value: {fileID: 21300000, guid: b7e630dcbe84bdb4d99732932bac1291, type: 3}
     - time: 0.35
-      value: {fileID: 21300000, guid: 1ab6c560559d4d34c8e3b1842f4d89c1, type: 3}
+      value: {fileID: 21300000, guid: d0673da9d5f23d14a864934d885c795e, type: 3}
     - time: 0.4
-      value: {fileID: 21300000, guid: 5ea31951359a8f74eaed5dd3ebb1936a, type: 3}
+      value: {fileID: 21300000, guid: 5d983d8d153f08441bf8651892ff109a, type: 3}
     - time: 0.45
-      value: {fileID: 21300000, guid: aefe39af75878904299f8c265697c01b, type: 3}
+      value: {fileID: 21300000, guid: b1809c6ffd6ea3a4eb300857b77e68c8, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: 00dd5c0ef2996b8498cef23a35cc6f95, type: 3}
+      value: {fileID: 21300000, guid: 7bc9bdfe7881e254eb2f1a801fbe4d6d, type: 3}
     - time: 0.55
-      value: {fileID: 21300000, guid: 477e75927be31a948899ada09d7245bb, type: 3}
+      value: {fileID: 21300000, guid: 1e5d16fee55d67a4a9f1c43d4ed16890, type: 3}
     - time: 0.6
-      value: {fileID: 21300000, guid: 4ef9000377a84ab42a72f6632fe5810b, type: 3}
+      value: {fileID: 21300000, guid: 21f06736705ab124a8ee39c1de1f158b, type: 3}
     - time: 0.65
-      value: {fileID: 21300000, guid: 899af7f355d239941bde9386cf267812, type: 3}
+      value: {fileID: 21300000, guid: 62871a8f9d7365f41935a379784fc520, type: 3}
     - time: 0.7
-      value: {fileID: 21300000, guid: 3ad40c903d1e77a438ca3a9dc95a7697, type: 3}
+      value: {fileID: 21300000, guid: 01dd1446ddba48248a674dd3bda9b6ac, type: 3}
     - time: 0.75
-      value: {fileID: 21300000, guid: f14e3eaed807aa940bfe899e496a27c2, type: 3}
-    - time: 0.8
-      value: {fileID: 21300000, guid: a185f672616864a41bfb676d8d2dead3, type: 3}
+      value: {fileID: 21300000, guid: a33f7447c21ca23438727f4d64a5b0b6, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -76,29 +74,28 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 8d086d9decccd60409620fa474fb5d82, type: 3}
-    - {fileID: 21300000, guid: 9b42de7f833ed084f9797691bfd22b22, type: 3}
-    - {fileID: 21300000, guid: d89a0796d21d92b488b23e721fe44d1e, type: 3}
-    - {fileID: 21300000, guid: 5fdb40aa0d06db64d9a393aebbf6af86, type: 3}
-    - {fileID: 21300000, guid: 1b1627e0503d7e3429539c7672c052a0, type: 3}
-    - {fileID: 21300000, guid: 5f31e3b541e6d4e46926750e1b2e1f70, type: 3}
-    - {fileID: 21300000, guid: 3c3cc15b0ad96974c9f68693ea752bb5, type: 3}
-    - {fileID: 21300000, guid: 1ab6c560559d4d34c8e3b1842f4d89c1, type: 3}
-    - {fileID: 21300000, guid: 5ea31951359a8f74eaed5dd3ebb1936a, type: 3}
-    - {fileID: 21300000, guid: aefe39af75878904299f8c265697c01b, type: 3}
-    - {fileID: 21300000, guid: 00dd5c0ef2996b8498cef23a35cc6f95, type: 3}
-    - {fileID: 21300000, guid: 477e75927be31a948899ada09d7245bb, type: 3}
-    - {fileID: 21300000, guid: 4ef9000377a84ab42a72f6632fe5810b, type: 3}
-    - {fileID: 21300000, guid: 899af7f355d239941bde9386cf267812, type: 3}
-    - {fileID: 21300000, guid: 3ad40c903d1e77a438ca3a9dc95a7697, type: 3}
-    - {fileID: 21300000, guid: f14e3eaed807aa940bfe899e496a27c2, type: 3}
-    - {fileID: 21300000, guid: a185f672616864a41bfb676d8d2dead3, type: 3}
+    - {fileID: 21300000, guid: 8e404e4784cb9324ca8f235f6b2b1aaf, type: 3}
+    - {fileID: 21300000, guid: 1a84ffbb873d4e042941cf039062347a, type: 3}
+    - {fileID: 21300000, guid: 5bdb471767b9da94baefb7957c70b218, type: 3}
+    - {fileID: 21300000, guid: 4266eccebfcba6e4fb1436407d7c4805, type: 3}
+    - {fileID: 21300000, guid: 231ba8fc5484d6e4ba1926e799fe81a3, type: 3}
+    - {fileID: 21300000, guid: 5ac86dd5ed3bd9842bad84c3e5477bc7, type: 3}
+    - {fileID: 21300000, guid: b7e630dcbe84bdb4d99732932bac1291, type: 3}
+    - {fileID: 21300000, guid: d0673da9d5f23d14a864934d885c795e, type: 3}
+    - {fileID: 21300000, guid: 5d983d8d153f08441bf8651892ff109a, type: 3}
+    - {fileID: 21300000, guid: b1809c6ffd6ea3a4eb300857b77e68c8, type: 3}
+    - {fileID: 21300000, guid: 7bc9bdfe7881e254eb2f1a801fbe4d6d, type: 3}
+    - {fileID: 21300000, guid: 1e5d16fee55d67a4a9f1c43d4ed16890, type: 3}
+    - {fileID: 21300000, guid: 21f06736705ab124a8ee39c1de1f158b, type: 3}
+    - {fileID: 21300000, guid: 62871a8f9d7365f41935a379784fc520, type: 3}
+    - {fileID: 21300000, guid: 01dd1446ddba48248a674dd3bda9b6ac, type: 3}
+    - {fileID: 21300000, guid: a33f7447c21ca23438727f4d64a5b0b6, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.85
+    m_StopTime: 0.8
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -118,7 +115,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.4
+  - time: 0.3
     functionName: PlayerSlashAttack
     data: 
     objectReferenceParameter: {fileID: 0}

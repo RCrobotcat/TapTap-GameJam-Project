@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class QuestUI : Singleton<QuestUI>
@@ -35,7 +36,7 @@ public class QuestUI : Singleton<QuestUI>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H) && SceneManager.GetActiveScene().name != "MenuScene")
         {
             isOpen = !isOpen;
             questPanel.SetActive(isOpen);

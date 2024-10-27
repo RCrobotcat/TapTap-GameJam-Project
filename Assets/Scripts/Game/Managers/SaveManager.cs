@@ -51,6 +51,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         // Save(GameManager.Instance.playerStatus.characterData, GameManager.Instance.playerStatus.characterData.name);
         InventoryManager.Instance.SaveData();
+        PlayerNumController.Instance.SavePlayerNums();
         QuestManager.Instance.SaveQuestManager();
     }
 
@@ -58,6 +59,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         // Load(GameManager.Instance.playerStatus.characterData, GameManager.Instance.playerStatus.characterData.name);
         InventoryManager.Instance.LoadData();
+        PlayerNumController.Instance.LoadPlayerNums();
         QuestManager.Instance.LoadQuestManager();
     }
 

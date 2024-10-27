@@ -13,6 +13,14 @@ public class SceneController : Singleton<SceneController>
         DontDestroyOnLoad(this);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            HandleTransitionToScene("MenuScene");
+        }
+    }
+
     public void TransitionToDestination(string SceneName, TransitionDestination.DestinationTag destinationTag)
     {
         StartCoroutine(Transition(SceneName, destinationTag));
@@ -21,6 +29,11 @@ public class SceneController : Singleton<SceneController>
     public void HandleTransitionToScene(string SceneName)
     {
         StartCoroutine(TransitionToScene(SceneName));
+    }
+
+    public void HandleContinue(string sceneName)
+    {
+        StartCoroutine(LoadContinueScene(sceneName));
     }
 
     IEnumerator TransitionToScene(string SceneName)
@@ -34,6 +47,31 @@ public class SceneController : Singleton<SceneController>
 
             yield return fader.FadeIn(1.3f);
             yield break;
+        }
+    }
+
+    IEnumerator LoadContinueScene(string sceneName)
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+        if (sceneName != "")
+        {
+            if (PlayerPrefs.HasKey("PlayerX") && PlayerPrefs.HasKey("PlayerY") && PlayerPrefs.HasKey("PlayerZ"))
+            {
+                yield return StartCoroutine(fade.FadeOut(1.2f));
+                yield return SceneManager.LoadSceneAsync(sceneName);
+
+                Vector3 PlayerPos = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
+                    PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+                yield return Instantiate(PlayerPrefab, PlayerPos, Quaternion.identity);
+
+                SaveManager.Instance.LoadPlayerData();
+                PlayerNumController.Instance.LoadPlayerNums();
+
+                // Save Data
+                SaveManager.Instance.SavePlayerData();
+                yield return StartCoroutine(fade.FadeIn(1.2f));
+                yield break;
+            }
         }
     }
 

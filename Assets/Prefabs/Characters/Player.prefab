@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 656a514a3fdc06144818753dd7b16bee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df65e8706fc3e434f82bf8219cbf082b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,6 +202,7 @@ MonoBehaviour:
   followPoint: {fileID: 4085880111474442242}
   lookAtPoint: {fileID: 6099591179391383893}
   RunSpeedMultiple: 2
+  combatWithEnemy: 0
   SlashStaminaCost: -3
   playerSlashEffect: {fileID: 0}
   slashEffectPos_left: {fileID: 2572231585898527160}
