@@ -91,6 +91,9 @@ public class QuestData_SO : ScriptableObject
 
             InventoryManager.Instance.inventoryUI.RefreshUI();
             InventoryManager.Instance.actionUI.RefreshUI();
+
+            if (QuestManager.Instance.IsInitialized)
+                QuestManager.Instance.UpdateQuestProgress(reward.itemData.name, reward.itemData.itemAmount);
         }
     }
 

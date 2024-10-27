@@ -36,6 +36,35 @@ public class SceneController : Singleton<SceneController>
         StartCoroutine(LoadContinueScene(sceneName));
     }
 
+    public void HandleRespawn(string sceneName)
+    {
+        StartCoroutine(Respawn(sceneName));
+    }
+
+    IEnumerator Respawn(string sceneName)
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+        if (sceneName != "")
+        {
+            if (PlayerPrefs.HasKey("PlayerX") && PlayerPrefs.HasKey("PlayerY") && PlayerPrefs.HasKey("PlayerZ"))
+            {
+                yield return StartCoroutine(fade.FadeOut(1.2f));
+                yield return SceneManager.LoadSceneAsync(sceneName);
+
+                Vector3 PlayerPos = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
+                    PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+                yield return Instantiate(PlayerPrefab, PlayerPos, Quaternion.identity);
+                yield return null;
+                SaveManager.Instance.LoadPlayerData();
+                PlayerNumController.Instance.LoadPlayerNums();
+                PlayerNumController.Instance.mModel.PlayerLight.Value = PlayerNumController.Instance.currentMaxLight;
+
+                yield return StartCoroutine(fade.FadeIn(1.2f));
+                yield break;
+            }
+        }
+    }
+
     IEnumerator TransitionToScene(string SceneName)
     {
         SceneFader fader = Instantiate(SceneFaderPrefab);

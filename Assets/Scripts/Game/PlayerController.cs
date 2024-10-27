@@ -3,6 +3,7 @@ using QFramework;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Singleton<PlayerController>
 {
@@ -116,6 +117,36 @@ public class PlayerController : Singleton<PlayerController>
             {
                 attackCoroutine = StartCoroutine(PlayerAttack());
             }
+        }
+
+        HandlePlayerDead();
+    }
+
+
+    bool isDead;
+    void HandlePlayerDead()
+    {
+        if (PlayerNumController.Instance.mModel.PlayerLight.Value <= 0 && !isDead)
+        {
+            isDead = true;
+            animator.SetBool("Dead", true);
+            StartCoroutine(HandlePlayerDeadTimer(1.5f));
+        }
+    }
+
+    IEnumerator HandlePlayerDeadTimer(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        isDead = false;
+
+        if (!string.IsNullOrEmpty(SaveManager.Instance.SceneName))
+        {
+            SceneController.Instance.HandleRespawn(SaveManager.Instance.SceneName);
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync("MenuScene");
         }
     }
 

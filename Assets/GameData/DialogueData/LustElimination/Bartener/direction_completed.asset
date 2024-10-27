@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc1d7a723b6a41428f4610b5cc4de16, type: 3}
-  m_Name: start_completed
+  m_Name: direction_completed
   m_EditorClassIdentifier: 
   dialoguePieces:
   - ID: Piece01
-    image: {fileID: 21300000, guid: eb7edecf7236d7442a712c51b454bdfa, type: 3}
-    text: "\u9ED1\u5F71: \u8BF7\u95EE\u4F60\u8FD8\u60F3\u7EE7\u7EED\u770B\u6E05\u8FD9\u4E2A\u4E16\u754C\u5417?"
-    questData: {fileID: 11400000, guid: 85dcf8abf5111584b8b17969c997aec2, type: 2}
+    image: {fileID: -1312055961, guid: 0de99599abeff33488d5134d84f52f19, type: 3}
+    text: "\u9152\u4FDD: \u5F88\u597D, \u770B\u6765\u4F60\u5DF2\u7ECF\u62FF\u5230\u4E86\u4ED6\u8EAB\u4E0A\u7684\u4E00\u90E8\u5206,
+      \u8BA9\u6211\u770B\u770B!"
+    questData: {fileID: 11400000, guid: 6eb8f7a9652b80c46ba9075c823d20c5, type: 2}
     dialogueOption:
-    - text: "\u60F3"
+    - text: "(\u7ED9\u51FA\u6389\u843D\u7269)"
       targetID: 
       takeQuest: 1
       followPlayer: 0
-    - text: "\u4E0D\u60F3"
+    - text: "(\u8D70\u5F00)"
       targetID: 
       takeQuest: 0
       followPlayer: 0

@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a80ad76fdbb5e9b499e274556848bf4e, type: 3}
-  m_Name: LustElimination
+  m_Name: GiveLustDropItem
   m_EditorClassIdentifier: 
-  questName: "\u6D88\u706D \"\u8272\u6B32\""
-  description: "\u6D88\u706D \"\u8272\u6B32\" , \u83B7\u53D6Light"
+  questName: "\u628A\"\u8272\u6B32\"\u7684\u6389\u843D\u7269\u4EA4\u7ED9\u9152\u4FDD"
+  description: "\u628A\"\u8272\u6B32\"\u7684\u51CB\u843D\u7269\u4EA4\u7ED9\u9152\u4FDD,
+    \u9152\u4FDD\u4F1A\u7ED9\u4F60\u4E00\u4E9B\u4E1C\u897F\u4F5C\u4E3A\u56DE\u62A5"
   isStarted: 0
   isCompleted: 0
   isFinished: 0
   questRequirements:
-  - name: Lust
+  - name: SeYu_Flower
     requiredAmount: 1
     currentAmount: 0
-  questRewards:
-  - itemData: {fileID: 11400000, guid: f608d1cf595b13943ba41d9df94d3c85, type: 2}
-    amount: 1
+  questRewards: []

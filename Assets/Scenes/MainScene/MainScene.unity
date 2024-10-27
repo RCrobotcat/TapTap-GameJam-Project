@@ -4398,6 +4398,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuestCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 139.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30.0344
+      objectReference: {fileID: 0}
     - target: {fileID: 6103559466117653539, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -7546,7 +7562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7047144025281319531, guid: 46f134468049dc8408ebf665620f08a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.41
+      value: 9.5
       objectReference: {fileID: 0}
     - target: {fileID: 7047144025281319531, guid: 46f134468049dc8408ebf665620f08a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7554,11 +7570,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7047144025281319531, guid: 46f134468049dc8408ebf665620f08a3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9063079
+      value: 0.9659258
       objectReference: {fileID: 0}
     - target: {fileID: 7047144025281319531, guid: 46f134468049dc8408ebf665620f08a3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42261827
+      value: 0.2588191
       objectReference: {fileID: 0}
     - target: {fileID: 7047144025281319531, guid: 46f134468049dc8408ebf665620f08a3, type: 3}
       propertyPath: m_LocalRotation.y
@@ -7570,7 +7586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7047144025281319531, guid: 46f134468049dc8408ebf665620f08a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7047144025281319531, guid: 46f134468049dc8408ebf665620f08a3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
