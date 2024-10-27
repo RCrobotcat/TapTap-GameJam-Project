@@ -56,9 +56,11 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
 
     void Update()
     {
-        HandleStaminaChange();
-
-        HandleLightChange();
+        if (PlayerController.Instance != null)
+        {
+            HandleStaminaChange();
+            HandleLightChange();
+        }
     }
 
     void HandleLightChange()

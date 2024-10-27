@@ -46,6 +46,12 @@ public class SceneController : Singleton<SceneController>
             yield return SceneManager.LoadSceneAsync(SceneName);
 
             QuestManager.Instance.LoadQuestManager();
+            yield return null;
+            if (PlayerNumController.Instance != null)
+            {
+                PlayerNumController.Instance.currentMaxLight = 5.0f;
+                PlayerNumController.Instance.mModel.PlayerLight.Value = PlayerNumController.Instance.currentMaxLight;
+            }
 
             yield return fader.FadeIn(1.3f);
             yield break;
@@ -65,12 +71,10 @@ public class SceneController : Singleton<SceneController>
                 Vector3 PlayerPos = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
                     PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
                 yield return Instantiate(PlayerPrefab, PlayerPos, Quaternion.identity);
-
+                yield return null;
                 SaveManager.Instance.LoadPlayerData();
                 PlayerNumController.Instance.LoadPlayerNums();
 
-                // Save Data
-                SaveManager.Instance.SavePlayerData();
                 yield return StartCoroutine(fade.FadeIn(1.2f));
                 yield break;
             }
