@@ -15,10 +15,10 @@ MonoBehaviour:
   dialoguePieces:
   - ID: Piece01
     image: {fileID: -1312055961, guid: 0de99599abeff33488d5134d84f52f19, type: 3}
-    text: "\u9152\u4FDD: \u8C22\u8C22\u4F60\u3002"
+    text: "\u9152\u4FDD: \u8C22\u8C22\u4F60, \u4E0A\u697C\u4F11\u606F\u5427\u3002201\u623F\u95F4\u662F\u7559\u7ED9\u4F60\u7684\u3002"
     questData: {fileID: 11400000, guid: 6eb8f7a9652b80c46ba9075c823d20c5, type: 2}
     dialogueOption:
-    - text: ...
+    - text: "\u597D\u7684\u3002"
       targetID: 
       takeQuest: 0
       followPlayer: 0

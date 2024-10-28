@@ -11,7 +11,9 @@ public class TransitionDestination : MonoBehaviour
         DungeonEnter,
         DungeonExit,
         SecondFloorEnter,
-        SecondFloorExit
+        SecondFloorExit,
+        GardenEnter,
+        GardenExit,
     }
 
     public DestinationTag destinationTag;

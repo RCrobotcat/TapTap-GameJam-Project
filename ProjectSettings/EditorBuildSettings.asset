@@ -19,12 +19,36 @@ EditorBuildSettings:
     guid: f9942abc5c717ff40937ecbcc968565e
   - enabled: 1
     path: Assets/Scenes/BarSecondFloorScene/BarSecondFloorScene.unity
-    guid: cca37a9593e73ef4785f29cd95ead118
+    guid: 9725dbebd28f93a48a5d989232dfd4c3
   - enabled: 1
     path: Assets/Scenes/ChurchScene/ChurchScene.unity
     guid: 26fe09a83be30994496696e219954958
   - enabled: 1
+    path: Assets/Scenes/MainScene_day2/MainScene_day2.unity
+    guid: bfe7087ae22ad324887bbab300656fe7
+  - enabled: 1
+    path: Assets/Scenes/HomeBarScene_day2/HomeBarScene_day2.unity
+    guid: 05d3bbf693ce88b498b34e4a23bc245c
+  - enabled: 1
+    path: Assets/Scenes/BarSecondFloorScene_day2/BarSecondFloorScene_day2.unity
+    guid: cca37a9593e73ef4785f29cd95ead118
+  - enabled: 1
+    path: Assets/Scenes/ChurchScene_day2/ChurchScene_day2.unity
+    guid: 88f19d546d4d8794bb218eb3551a9755
+  - enabled: 1
     path: Assets/Scenes/DungeonScene/DungeonScene.unity
     guid: 4aa1f54a83ecad740b9eeacc64d584ba
+  - enabled: 1
+    path: Assets/Scenes/MainScene_day3/MainScene_day3.unity
+    guid: c2854729a1fb9274ca1a00ad797a05ff
+  - enabled: 1
+    path: Assets/Scenes/HomeBarScene_day3/HomeBarScene_day3.unity
+    guid: f1d2daa079a8c8d4180e15b4bff4c8a3
+  - enabled: 1
+    path: Assets/Scenes/BarSecondFloorScene_day3/BarSecondFloorScene_day3.unity
+    guid: f8aa7471d8e5ede48991ceea1dc38465
+  - enabled: 1
+    path: Assets/Scenes/ChurchScene_day3/ChurchScene_day3.unity
+    guid: 33f46d00cb1d6e54e8ae2f64cf20e41e
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e2e7c48956151804786cb5918ed1be08, type: 2}

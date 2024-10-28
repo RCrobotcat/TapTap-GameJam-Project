@@ -119,6 +119,11 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         this.SendCommand(new PlayerStaminaChangeCommand(val));
     }
 
+    public void LightChange(float val)
+    {
+        this.SendCommand(new PlayerLightChangeCommand(val));
+    }
+
     // Update the player max Light
     public void MaxLightUpdate()
     {

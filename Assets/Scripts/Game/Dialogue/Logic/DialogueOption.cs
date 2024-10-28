@@ -4,5 +4,8 @@ public class DialogueOption
     public string text;
     public string targetID;
     public bool takeQuest;
-    public bool followPlayer;
+    public bool transitToScene;
+    public string sceneName;
+    public bool getItem;
+    public ItemData_SO item;
 }

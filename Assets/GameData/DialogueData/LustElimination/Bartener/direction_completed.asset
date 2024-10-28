@@ -19,7 +19,7 @@ MonoBehaviour:
       \u8BA9\u6211\u770B\u770B!"
     questData: {fileID: 11400000, guid: 6eb8f7a9652b80c46ba9075c823d20c5, type: 2}
     dialogueOption:
-    - text: "(\u7ED9\u51FA\u6389\u843D\u7269)"
+    - text: "(\u5C55\u793A\u6389\u843D\u7269)"
       targetID: 
       takeQuest: 1
       followPlayer: 0

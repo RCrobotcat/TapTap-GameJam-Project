@@ -11,6 +11,10 @@ public class OptionUI : MonoBehaviour
     string nextPieceID;
     bool takeQuest;
     bool followPlayer;
+    bool transitToScene;
+    string sceneName;
+    bool getItem;
+    ItemData_SO item;
 
     void Awake()
     {
@@ -24,7 +28,10 @@ public class OptionUI : MonoBehaviour
         optionText.text = option.text;
         nextPieceID = option.targetID;
         takeQuest = option.takeQuest;
-        followPlayer = option.followPlayer;
+        transitToScene = option.transitToScene;
+        sceneName = option.sceneName;
+        getItem = option.getItem;
+        item = option.item;
     }
 
     public void OnOptionClicked()
@@ -66,6 +73,18 @@ public class OptionUI : MonoBehaviour
         {
             DialogueUI.Instance.currentNpc.followPlayer = false;
         }*/
+
+        if (transitToScene)
+        {
+            SceneController.Instance.HandleTransitionToScene(sceneName);
+        }
+
+        if (getItem)
+        {
+            InventoryManager.Instance.inventoryData.AddItem(item, 1);
+            InventoryManager.Instance.inventoryUI.RefreshUI();
+            QuestManager.Instance.UpdateQuestProgress(item.name, 1);
+        }
 
         if (nextPieceID == "")
         {

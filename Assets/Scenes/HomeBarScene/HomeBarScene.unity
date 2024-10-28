@@ -2097,7 +2097,7 @@ Transform:
   m_GameObject: {fileID: 1279890275}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 10.51, y: 4.55, z: -4.86}
+  m_LocalPosition: {x: 10.51, y: 3.98, z: -4.82}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2139,6 +2139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8298bfe3551c449b50e11f6bd7bdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentQuestData: {fileID: 0}
   startDialogueData: {fileID: 11400000, guid: f2363b6edf93eed40b60bad5be48f931, type: 2}
   progressDialogueData: {fileID: 11400000, guid: 9478049beb1143844a0a36e0093994e6, type: 2}
   completedDialogueData: {fileID: 11400000, guid: 6742855738ccd6846b98eb58ea4f925d, type: 2}
@@ -4439,19 +4440,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 139.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2442701638609324820, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -30.0344
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6103559466117653539, guid: 6348e8df1bab4ac4e9b97e0edb61ae56, type: 3}
       propertyPath: m_Pivot.x

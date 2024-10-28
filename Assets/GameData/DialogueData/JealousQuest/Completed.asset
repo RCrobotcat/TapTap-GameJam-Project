@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc1d7a723b6a41428f4610b5cc4de16, type: 3}
+  m_Name: Completed
+  m_EditorClassIdentifier: 
+  dialoguePieces:
+  - ID: Piece01
+    image: {fileID: -1312055961, guid: 0de99599abeff33488d5134d84f52f19, type: 3}
+    text: "\u9152\u4FDD: \u5F88\u597D, \u8FD9\u662F\u7ED9\u4F60\u7684\u5956\u52B1!
+      \u4F60\u8EAB\u4E0A\u7684\u8FD9\u4E2A\u7ED1\u5E26\u662F..."
+    questData: {fileID: 11400000, guid: 8a47ad55fedb74a4b8a7ab78cb14d98f, type: 2}
+    dialogueOption:
+    - text: "\u8FD9\u4E2A\u7ED1\u5E26\u53EF\u4EE5\u8BA9\u6211\u8FDB\u5165\u540E\u82B1\u56ED"
+      targetID: 
+      takeQuest: 1
+      transitToScene: 0
+      sceneName: 
+      getItem: 0
+      item: {fileID: 0}

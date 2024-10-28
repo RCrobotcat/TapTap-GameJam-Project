@@ -35,7 +35,7 @@ public class SlotHolder : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
         {
             if (itemUI.GetItem().itemType == ItemType.Usable && itemUI.Bag.items[itemUI.Index].amount > 0)
             {
-                // GameManager.Instance.playerStatus.ApplyHealth(itemUI.GetItem().usableItemData.RestoreHealthPoint);
+                PlayerNumController.Instance.LightChange(itemUI.GetItem().usableItemData.RestoreLightPoint);
                 itemUI.Bag.items[itemUI.Index].amount--; // decrease the amount by 1
             }
             else if (itemUI.GetItem().itemType == ItemType.Weapon && itemUI.Bag.items[itemUI.Index].amount > 0)

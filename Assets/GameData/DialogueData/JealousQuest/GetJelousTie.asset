@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc1d7a723b6a41428f4610b5cc4de16, type: 3}
+  m_Name: GetJelousTie
+  m_EditorClassIdentifier: 
+  dialoguePieces:
+  - ID: Piece01
+    image: {fileID: -776209541, guid: 5f3a0e67cb37783488cd90e49527adcb, type: 3}
+    text: "\"\u5AC9\u5992\": \u4F60\u597D, \u6211\u88AB\u4E0A\u9762\u90A3\u602A\u7269\u5173\u5728\u8FD9\u91CC\u5F88\u4E45\u4E86\u2026\u2026\u4F60\u662F\u8C01\uFF1F\u4F60\u662F\u6765\u6551\u6211\u7684\u5417\uFF1F"
+    questData: {fileID: 11400000, guid: 4993b4c3447607944bae3136dd03a03f, type: 2}
+    dialogueOption:
+    - text: "...\u6211\u5DF2\u7ECF\u628A\u4E0A\u9762\u7684\u602A\u7269\u6740\u6B7B\u4E86"
+      targetID: Piece02
+      takeQuest: 0
+      transitToScene: 0
+      sceneName: 
+      getItem: 0
+      item: {fileID: 0}
+  - ID: Piece02
+    image: {fileID: -776209541, guid: 5f3a0e67cb37783488cd90e49527adcb, type: 3}
+    text: "\"\u5AC9\u5992\": \u771F\u7684\u5417! \u592A\u597D\u4E86! \u8DDF\u6211\u6765,
+      \u6211\u6709\u4EF6\u4E1C\u897F\u8981\u7ED9\u4F60\u3002"
+    questData: {fileID: 11400000, guid: 4993b4c3447607944bae3136dd03a03f, type: 2}
+    dialogueOption:
+    - text: "\u8C22\u8C22\u4F60"
+      targetID: 
+      takeQuest: 0
+      transitToScene: 0
+      sceneName: 
+      getItem: 1
+      item: {fileID: 11400000, guid: 4b3ab78caa5eed740924635283299404, type: 2}

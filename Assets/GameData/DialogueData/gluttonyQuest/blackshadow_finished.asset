@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cc1d7a723b6a41428f4610b5cc4de16, type: 3}
+  m_Name: blackshadow_finished
+  m_EditorClassIdentifier: 
+  dialoguePieces:
+  - ID: Piece01
+    image: {fileID: 2070218374, guid: 555e3fc4c8af4c54b88232df866b8494, type: 3}
+    text: "\u50B2\u6162: \u6211\u662F\u4F60\u7684\u201C\u50B2\u6162\u201D\u3002\u6211\u5C31\u662F\u4F60,
+      \u4F60\u4EA6\u662F\u6211\u3002"
+    questData: {fileID: 0}
+    dialogueOption:
+    - text: "\uFF1F\uFF01"
+      targetID: Piece02
+      takeQuest: 0
+      transitToScene: 0
+      sceneName: 
+      getItem: 0
+      item: {fileID: 0}
+    - text: "(\u8DD1\u8D70)"
+      targetID: 
+      takeQuest: 0
+      transitToScene: 0
+      sceneName: 
+      getItem: 0
+      item: {fileID: 0}
+  - ID: Piece02
+    image: {fileID: 2070218374, guid: 555e3fc4c8af4c54b88232df866b8494, type: 3}
+    text: "\u50B2\u6162: \u548C\u6211\u6218\u6597\u5427! \u4E00\u51B3\u9AD8\u4E0B\u7684\u65F6\u5019\u5230\u4E86\u3002"
+    questData: {fileID: 0}
+    dialogueOption:
+    - text: "\u4E00\u51B3\u9AD8\u4E0B! "
+      targetID: 
+      takeQuest: 0
+      transitToScene: 0
+      sceneName: 
+      getItem: 0
+      item: {fileID: 0}

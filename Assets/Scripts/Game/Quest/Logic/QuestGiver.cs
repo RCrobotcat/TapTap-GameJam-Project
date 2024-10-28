@@ -4,7 +4,7 @@ using UnityEngine;
 public class QuestGiver : MonoBehaviour
 {
     DialogueCtrl dialogueController;
-    QuestData_SO currentQuestData;
+    [HideInInspector] public QuestData_SO currentQuestData;
 
     public DialogueData_SO startDialogueData; // Dialogue to start the quest
     public DialogueData_SO progressDialogueData; // Dialogue to show the progress of the quest

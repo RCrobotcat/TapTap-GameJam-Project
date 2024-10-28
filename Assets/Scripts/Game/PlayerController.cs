@@ -59,12 +59,13 @@ public class PlayerController : Singleton<PlayerController>
         {
             PlayerCam.Follow = followPoint;
             PlayerCam.LookAt = lookAtPoint;
-
         }
     }
 
     void Update()
     {
+        if (isDead) return;
+
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 

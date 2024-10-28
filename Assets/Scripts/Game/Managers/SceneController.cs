@@ -135,8 +135,6 @@ public class SceneController : Singleton<SceneController>
             SaveManager.Instance.LoadPlayerData();
             PlayerNumController.Instance.LoadPlayerNums();
 
-            SaveManager.Instance.SavePlayerData();
-            SaveManager.Instance.SavePlayerPosition();
             yield return fader.FadeIn(1.3f);
             yield break;
         }
