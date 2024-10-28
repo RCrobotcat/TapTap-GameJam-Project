@@ -78,6 +78,10 @@ public class PlayerController : Singleton<PlayerController>
             Vector3 CamRelativeMove = ConvertToCameraSpace(inputDirection);
             MovePlayer(CamRelativeMove);
         }
+        else
+        {
+            AudioManager.Instance.footStepSource.Stop();
+        }
 
         animator.SetFloat("Speed", agent.velocity.magnitude);
         animator.SetFloat("Horizontal", horizontal);
@@ -101,6 +105,9 @@ public class PlayerController : Singleton<PlayerController>
                 isRunning = true;
                 animator.SetBool("Running", true);
                 agent.speed *= RunSpeedMultiple;
+
+                AudioManager.Instance.footStepSource.Stop();
+                AudioManager.Instance.PlayFootStep(AudioManager.Instance.PlayerRun_solid);
             }
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift) || PlayerNumController.Instance.mModel.PlayerStamina.Value <= 0
@@ -109,6 +116,7 @@ public class PlayerController : Singleton<PlayerController>
             isRunning = false;
             animator.SetBool("Running", false);
             agent.speed = originalSpeed;
+            AudioManager.Instance.footStepSource.Stop();
         }
         if (PlayerNumController.Instance.mModel.PlayerStamina.Value >= 15.0f && !Input.GetKeyDown(KeyCode.LeftShift))
             PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(false);
@@ -180,6 +188,10 @@ public class PlayerController : Singleton<PlayerController>
     {
         Vector3 targetPosition = transform.position + inputDirection;
         MoveToTarget(targetPosition);
+        if (!AudioManager.Instance.footStepSource.isPlaying)
+        {
+            AudioManager.Instance.PlayFootStep(AudioManager.Instance.PlayerWalk_solid);
+        }
     }
 
     public void MoveToTarget(Vector3 target)
@@ -211,6 +223,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         agent.isStopped = true;
         animator.SetTrigger("Attack");
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.PlayerSlash);
         PlayerNumController.Instance.PlayerStaminaBar.gameObject.SetActive(true);
         PlayerNumController.Instance.StaminaChange(SlashStaminaCost);
         GameObject effect;

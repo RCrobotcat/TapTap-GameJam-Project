@@ -2,24 +2,21 @@ using UnityEngine;
 
 public class AudioManager : Singleton<AudioManager>
 {
-
     public AudioSource SfxAudio;
     public AudioSource footStepSource;
-    public AudioClip PlayerWalk;
-    public AudioClip PlayerJump;
-    public AudioClip PlayerDash;
-    public AudioClip PlayerDeath;
-    public AudioClip PlayerHurted;
-    public AudioClip PlayerClimb;
-    public AudioClip MonsterWalk;
-    public AudioClip MonsterJump;
-    public AudioClip MonsterDeath;
-    public AudioClip MonsterHurted;
-    public AudioClip MonsterExplode;
-    public AudioClip TurretPut;
-    public AudioClip TurretATK;
-    public AudioClip atkTowerPut;
-    public AudioClip playerHeal;
+    public AudioClip PlayerWalk_solid;
+    public AudioClip PlayerWalk_soft;
+    public AudioClip PlayerRun_solid;
+    public AudioClip PlayerRun_soft;
+    public AudioClip PlayerSlash;
+    public AudioClip PlayerSlash_target;
+    public AudioClip JealousHitPlane;
+    public AudioClip collectBean;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     private void Update()
     {
@@ -35,10 +32,9 @@ public class AudioManager : Singleton<AudioManager>
         SfxAudio.PlayOneShot(clip);
     }
 
-    // footstep sound
-    public void PlayWalkSfx()
+    public void PlayFootStep(AudioClip clip)
     {
-        footStepSource.PlayOneShot(PlayerWalk);
+        footStepSource.PlayOneShot(clip);
     }
 
     public void RandomPlaySfx(AudioClip clip)//音效概率播放调用方法

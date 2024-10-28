@@ -5,6 +5,8 @@ public class MainMenu : MonoBehaviour
     public ItemData_SO basicWeapon;
     public ItemData_SO rageWeapon;
 
+    public GameObject esc;
+
     public void NewGame()
     {
         // Delete all saved data
@@ -21,6 +23,11 @@ public class MainMenu : MonoBehaviour
     {
         if (SaveManager.Instance.SceneName != "")
             SceneController.Instance.HandleContinue(SaveManager.Instance.SceneName);
+    }
+
+    public void Options()
+    {
+        esc.SetActive(true);
     }
 
     public void QuitGame()

@@ -170,6 +170,7 @@ public class ArrogantController : MonoBehaviour
 
         // 播放受击动画
         animator.SetTrigger("Hit");
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.PlayerSlash_target);
 
         // 检查是否死亡
         if (currentHealth <= 0)

@@ -31,5 +31,6 @@ public class Jealous : MonoBehaviour
     public void AttackPlane()
     {
         impulseSource.GenerateImpulse();
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.JealousHitPlane);
     }
 }

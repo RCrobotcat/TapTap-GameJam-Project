@@ -168,6 +168,7 @@ public class Enemy : MonoBehaviour
         float currentHealth = EnemyCurrentHealth - damage;
         EnemyCurrentHealth = Mathf.Clamp(currentHealth, 0, EnemyMaxHealth);
         anim.SetTrigger("GetHit");
+        AudioManager.Instance.PlaySfx(AudioManager.Instance.PlayerSlash_target);
         CinemachineShake.Instance.shakingCamera(5f, 0.3f);
     }
 

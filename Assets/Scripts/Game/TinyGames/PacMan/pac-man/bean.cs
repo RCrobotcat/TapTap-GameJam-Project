@@ -17,12 +17,13 @@ public class bean : MonoBehaviour
         if (other.tag == "bean")//吃豆功能和计数功能
         {
             Destroy(other.gameObject);
+            AudioManager.Instance.PlaySfx(AudioManager.Instance.collectBean);
             BeanNum++;
             if (BlackNum < 0.68f)//屏幕逐级变暗数值
             {
                 BlackNum = BlackNum + 0.017f;
             }
-            count = count + 6f;
+            count = count + 5f;
         }
     }
 
@@ -35,7 +36,7 @@ public class bean : MonoBehaviour
     bool isWin;
     public void Win()//获得游戏胜利
     {
-        if (BeanNum >= 5)
+        if (BeanNum >= 30)
         {
             winTip.SetActive(true);
             if (timer < winGap)

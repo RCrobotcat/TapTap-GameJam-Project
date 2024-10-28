@@ -58,7 +58,16 @@ public class GoHundred_Players : Singleton<GoHundred_Players>
         if (inputDirection != Vector3.zero)
         {
             MovePlayer(inputDirection);
+            if (!AudioManager.Instance.footStepSource.isPlaying)
+            {
+                AudioManager.Instance.PlayFootStep(AudioManager.Instance.PlayerWalk_solid);
+            }
         }
+        else
+        {
+            AudioManager.Instance.footStepSource.Stop();
+        }
+
     }
 
     //ÒÆ¶¯

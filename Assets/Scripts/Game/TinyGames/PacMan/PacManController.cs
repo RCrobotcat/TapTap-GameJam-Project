@@ -36,6 +36,10 @@ public class PacManController : Singleton<PacManController>
             Vector3 CamRelativeMove = ConvertToCameraSpace(inputDirection);
             MovePlayer(CamRelativeMove);
         }
+        else
+        {
+            AudioManager.Instance.footStepSource.Stop();
+        }
 
         animator.SetFloat("Speed", agent.velocity.magnitude);
         animator.SetFloat("Horizontal", horizontal);
@@ -55,6 +59,10 @@ public class PacManController : Singleton<PacManController>
     {
         Vector3 targetPosition = transform.position + inputDirection;
         MoveToTarget(targetPosition);
+        if (!AudioManager.Instance.footStepSource.isPlaying)
+        {
+            AudioManager.Instance.PlayFootStep(AudioManager.Instance.PlayerWalk_solid);
+        }
     }
 
     public void MoveToTarget(Vector3 target)
