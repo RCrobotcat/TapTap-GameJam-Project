@@ -51,6 +51,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ChurchScene_day3/ChurchScene_day3.unity
     guid: 33f46d00cb1d6e54e8ae2f64cf20e41e
   - enabled: 1
+    path: Assets/Scenes/TinyGames/GoHundredScene/GoHundredScene.unity
+    guid: d660ad58aa899e84cba6f2151d6cb8ca
+  - enabled: 1
     path: Assets/Scenes/TinyGames/Pac-Man-Map/Pac-Man-Map.unity
     guid: b5e2d1948c0cb3145a3c01350f222509
   - enabled: 1

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ArrogantController : MonoBehaviour
 {
@@ -185,7 +186,7 @@ public class ArrogantController : MonoBehaviour
             isDead = true;
             animator.SetBool("Dead", true);
             agent.isStopped = true;
-            // 禁用碰撞器等组件
+            SceneController.Instance.HandleTransitionToScene("MenuScene");
             Destroy(gameObject, 2f); // 2秒后销毁
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GoHundred_Player : MonoBehaviour
@@ -16,7 +14,7 @@ public class GoHundred_Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = new Vector3( moveSpeed , rb.velocity.y, 0);
+            rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
             //transform.position = new Vector3(transform.position.x + 5*Time.deltaTime,transform.position.y, transform.position.z);
         }
         if (Input.GetKey(KeyCode.D))
