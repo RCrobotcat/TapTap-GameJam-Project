@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-using System.Runtime.CompilerServices;
 
 public class SceneController : Singleton<SceneController>
 {
@@ -100,6 +99,25 @@ public class SceneController : Singleton<SceneController>
     public void HandleRespawn(string sceneName)
     {
         StartCoroutine(Respawn(sceneName));
+    }
+
+    public void HandleRespawnGoHundred(string sceneName)
+    {
+        StartCoroutine(RespawnGoHundred(sceneName));
+    }
+
+    public void HandleLoadTutorialScene()
+    {
+        StartCoroutine(LoadTutorialScene());
+    }
+
+    IEnumerator LoadTutorialScene()
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+        yield return StartCoroutine(fade.FadeOut(1.2f));
+        yield return SceneManager.LoadSceneAsync("TutorialScene");
+        yield return StartCoroutine(fade.FadeIn(1.2f));
+        yield break;
     }
 
     IEnumerator Respawn(string sceneName)
@@ -203,6 +221,16 @@ public class SceneController : Singleton<SceneController>
             yield return fader.FadeIn(1.3f);
             yield break;
         }
+    }
+
+    IEnumerator RespawnGoHundred(string sceneName)
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+
+        yield return fade.FadeOut(0.7f);
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        yield return fade.FadeIn(0.5f);
+        yield break;
     }
 
     // Find the destination entrance in the new scene

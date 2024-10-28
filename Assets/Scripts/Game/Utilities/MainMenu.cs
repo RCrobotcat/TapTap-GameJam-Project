@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviour
         basicWeapon.isPicked = false;
         rageWeapon.isPicked = false;
 
-        SceneController.Instance.HandleTransitionToScene("TutorialScene");
+        SceneController.Instance.HandleLoadTutorialScene();
     }
 
     public void ContinueGame()

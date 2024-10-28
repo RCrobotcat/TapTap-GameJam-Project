@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InventoryManager : Singleton<InventoryManager>
 {
@@ -65,7 +66,7 @@ public class InventoryManager : Singleton<InventoryManager>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && SceneManager.GetActiveScene().name != "MenuScene")
         {
             isOpen = !isOpen;
             BagPanel.SetActive(isOpen);

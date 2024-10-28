@@ -50,6 +50,8 @@ public class CreateStep : MonoBehaviour
         {
             once++;
             Instantiate(GameoverStep, transform.position, transform.rotation);
+
+            SceneController.Instance.HandleContinueJealous(SaveManager.Instance.SceneName);
         }
     }
 }
