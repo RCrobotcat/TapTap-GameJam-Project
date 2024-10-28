@@ -35,7 +35,7 @@ public class bean : MonoBehaviour
     bool isWin;
     public void Win()//获得游戏胜利
     {
-        if (BeanNum >= 30)
+        if (BeanNum >= 5)
         {
             winTip.SetActive(true);
             if (timer < winGap)

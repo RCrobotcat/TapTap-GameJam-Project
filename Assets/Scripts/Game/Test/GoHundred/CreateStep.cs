@@ -1,38 +1,55 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CreateStep : MonoBehaviour
 {
-    public GameObject step_perfab;
-    public float spawnRate;    //生成时间
-    public float timer;
+    [Header("InstantiateGameObject")]
+    public GameObject step_perfab;                    //生成物体
+    public GameObject GameoverStep;                   //游戏结束生成台阶
+
+    public float CreateObstructionDuraction;          //生成间隔
+
+    public int Step_Counter = 0;                      //生成限制计数器
+    public int Step_count;
+
+    [HideInInspector] public float timer;
     public float RangeOffset;
+    [HideInInspector] public int once = 0;
 
     private void Start()
     {
-        timer = spawnRate;
+        timer = CreateObstructionDuraction;
     }
     private void Update()
     {
-        if (timer < spawnRate)
+        if (timer <= CreateObstructionDuraction)
         {
             timer += Time.deltaTime;
         }
-        else 
+        else
         {
-            spawnPipe();
-            timer = 0;
+            //游戏已经结束
+            GameOver();
+
+            if (Step_count < Step_Counter)
+            {
+                CreateObstruction();
+            }
         }
     }
 
-    private void spawnPipe()
+    private void CreateObstruction()
     {
-        //float lowerPoint = transform.position.z - RangeOffset;  //创建随机最小值
-        //float hightPoint = transform.position.y + RangeOffset;  //创建随机最大值
-        Instantiate(step_perfab, new Vector3(UnityEngine.Random.Range(-5 , 5), transform.position.y, transform.position.z),transform.rotation);
+        timer = 0;
+        Step_count++;
+        Instantiate(step_perfab, new Vector3(transform.position.x, transform.position.y, transform.position.z + Random.Range(-RangeOffset, RangeOffset)), transform.rotation);
     }
 
-    
+    private void GameOver()
+    {
+        if (Step_count == Step_Counter && once != 1)
+        {
+            once++;
+            Instantiate(GameoverStep, transform.position, transform.rotation);
+        }
+    }
 }

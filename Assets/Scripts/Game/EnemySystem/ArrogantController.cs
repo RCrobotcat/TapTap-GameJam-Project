@@ -69,6 +69,8 @@ public class ArrogantController : MonoBehaviour
 
         if (distanceToPlayer <= detectRange)
         {
+            InventoryManager.Instance.EnemyHealthPanel.SetActive(true);
+            InventoryManager.Instance.EnemyHealthPanel.GetComponent<EnemyHealthUI>().UpdateHealthBar(currentHealth, maxHealth);
             // 移动到玩家位置
             MoveToTarget(playerTransform.position);
 
@@ -83,6 +85,7 @@ public class ArrogantController : MonoBehaviour
         }
         else
         {
+            InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
             // 停止移动
             agent.isStopped = true;
             animator.SetFloat("Speed", 0);
@@ -162,6 +165,7 @@ public class ArrogantController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         currentHealth -= damage;
+        CinemachineShake.Instance.shakingCamera(5f, 0.3f);
 
         // 播放受击动画
         animator.SetTrigger("Hit");
@@ -177,6 +181,7 @@ public class ArrogantController : MonoBehaviour
     {
         if (currentHealth <= 0 && !isDead)
         {
+            InventoryManager.Instance.EnemyHealthPanel.SetActive(false);
             isDead = true;
             animator.SetBool("Dead", true);
             agent.isStopped = true;

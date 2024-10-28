@@ -41,7 +41,7 @@ MonoBehaviour:
     - text: "\u4E00\u51B3\u9AD8\u4E0B! "
       targetID: 
       takeQuest: 0
-      transitToScene: 0
-      sceneName: 
+      transitToScene: 1
+      sceneName: BossArrogantScene
       getItem: 0
       item: {fileID: 0}

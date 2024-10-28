@@ -53,5 +53,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TinyGames/Pac-Man-Map/Pac-Man-Map.unity
     guid: b5e2d1948c0cb3145a3c01350f222509
+  - enabled: 1
+    path: Assets/Scenes/BossArrogantScene/BossArrogantScene.unity
+    guid: d5cd2d00512d197489435b98d800950d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: e2e7c48956151804786cb5918ed1be08, type: 2}

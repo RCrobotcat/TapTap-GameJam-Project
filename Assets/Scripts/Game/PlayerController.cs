@@ -243,6 +243,8 @@ public class PlayerController : Singleton<PlayerController>
         return null;
     }
 
+    Enemy enemy;
+    ArrogantController arrogant;
     // Player Slash Animation Event
     public void PlayerSlashAttack()
     {
@@ -252,9 +254,18 @@ public class PlayerController : Singleton<PlayerController>
         {
             if (Vector3.Distance(target.transform.position, transform.position) <= attackData.attackRange)
             {
+
                 float damage = currentDamage();
-                Enemy enemy = target.GetComponent<Enemy>();
-                enemy.TakeDamage(damage);
+                if (target.GetComponent<Enemy>() != null)
+                {
+                    enemy = target.GetComponent<Enemy>();
+                    enemy.TakeDamage(damage);
+                }
+                if (target.GetComponent<ArrogantController>() != null)
+                {
+                    arrogant = target.GetComponent<ArrogantController>();
+                    arrogant.TakeDamage(damage);
+                }
                 InventoryManager.Instance.EnemyHealthPanel.GetComponent<EnemyHealthUI>()
                     .UpdateHealthBar(enemy.currentHealth, enemy.EnemyMaxHealth);
             }

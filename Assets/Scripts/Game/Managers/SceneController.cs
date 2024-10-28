@@ -139,6 +139,8 @@ public class SceneController : Singleton<SceneController>
 
             if (QuestManager.Instance != null)
                 QuestManager.Instance.LoadQuestManager();
+            if (InventoryManager.Instance != null)
+                InventoryManager.Instance.LoadData();
             yield return null;
             if (PlayerNumController.Instance != null)
             {
