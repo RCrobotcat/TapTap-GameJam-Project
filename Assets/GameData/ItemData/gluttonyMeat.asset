@@ -18,7 +18,7 @@ MonoBehaviour:
   itemAmount: 1
   isPicked: 0
   description: "\"\u66B4\u98DF\"\u7684\u6389\u843D\u7269, \u662F\u4E00\u5757\u8089\u3002"
-  stackable: 0
+  stackable: 1
   WeaponPrefab: {fileID: 0}
   WeaponData: {fileID: 0}
   WeaponAnimator: {fileID: 0}

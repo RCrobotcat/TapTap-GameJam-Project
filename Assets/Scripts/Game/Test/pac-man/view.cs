@@ -14,7 +14,7 @@ public class view : MonoBehaviour
     private float numcolor = 0f;
     private void Start()
     {
-        image.color = new Color(0, 0, 0, 0.3f);
+        image.color = new Color(0, 0, 0, 0);
     }
     private void Update()
     {

@@ -32,6 +32,9 @@ public class PlayerController : Singleton<PlayerController>
     public Transform slashEffectPos_right;
     public float detectRange; // Player detect range
 
+    [HideInInspector] public bool isGluttonyCompleted;
+    [HideInInspector] public bool isJealousCompleted;
+
     [HideInInspector] public bool equipRage;
 
     private Coroutine attackCoroutine;

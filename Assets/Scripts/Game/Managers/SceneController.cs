@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.Runtime.CompilerServices;
 
 public class SceneController : Singleton<SceneController>
 {
@@ -13,13 +14,13 @@ public class SceneController : Singleton<SceneController>
         DontDestroyOnLoad(this);
     }
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             HandleTransitionToScene("MenuScene");
         }
-    }
+    }*/
 
     public void TransitionToDestination(string SceneName, TransitionDestination.DestinationTag destinationTag)
     {
@@ -35,6 +36,66 @@ public class SceneController : Singleton<SceneController>
     {
         StartCoroutine(LoadContinueScene(sceneName));
     }
+
+    public void HandleContinueGluttony(string sceneName)
+    {
+        StartCoroutine(LoadContinueScene_Gkuttony(sceneName));
+    }
+
+    #region Gluttony/Jealous
+    IEnumerator LoadContinueScene_Gkuttony(string sceneName)
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+        if (sceneName != "")
+        {
+            if (PlayerPrefs.HasKey("PlayerX") && PlayerPrefs.HasKey("PlayerY") && PlayerPrefs.HasKey("PlayerZ"))
+            {
+                yield return StartCoroutine(fade.FadeOut(1.2f));
+                yield return SceneManager.LoadSceneAsync(sceneName);
+
+                Vector3 PlayerPos = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
+                    PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+                yield return Instantiate(PlayerPrefab, PlayerPos, Quaternion.identity);
+                yield return null;
+                PlayerController.Instance.isGluttonyCompleted = true;
+                SaveManager.Instance.LoadPlayerData();
+                PlayerNumController.Instance.LoadPlayerNums();
+
+                yield return StartCoroutine(fade.FadeIn(1.2f));
+                yield break;
+            }
+        }
+    }
+
+    public void HandleContinueJealous(string sceneName)
+    {
+        StartCoroutine(LoadContinueScene_Jealous(sceneName));
+    }
+
+    IEnumerator LoadContinueScene_Jealous(string sceneName)
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+        if (sceneName != "")
+        {
+            if (PlayerPrefs.HasKey("PlayerX") && PlayerPrefs.HasKey("PlayerY") && PlayerPrefs.HasKey("PlayerZ"))
+            {
+                yield return StartCoroutine(fade.FadeOut(1.2f));
+                yield return SceneManager.LoadSceneAsync(sceneName);
+
+                Vector3 PlayerPos = new Vector3(PlayerPrefs.GetFloat("PlayerX"),
+                    PlayerPrefs.GetFloat("PlayerY"), PlayerPrefs.GetFloat("PlayerZ"));
+                yield return Instantiate(PlayerPrefab, PlayerPos, Quaternion.identity);
+                yield return null;
+                PlayerController.Instance.isJealousCompleted = true;
+                SaveManager.Instance.LoadPlayerData();
+                PlayerNumController.Instance.LoadPlayerNums();
+
+                yield return StartCoroutine(fade.FadeIn(1.2f));
+                yield break;
+            }
+        }
+    }
+    #endregion
 
     public void HandleRespawn(string sceneName)
     {
@@ -68,18 +129,20 @@ public class SceneController : Singleton<SceneController>
     IEnumerator TransitionToScene(string SceneName)
     {
         SceneFader fader = Instantiate(SceneFaderPrefab);
+        SaveManager.Instance.SavePlayerData();
+        SaveManager.Instance.SavePlayerPosition();
 
         if (SceneName != SceneManager.GetActiveScene().name)
         {
             yield return fader.FadeOut(1.3f);
             yield return SceneManager.LoadSceneAsync(SceneName);
 
-            QuestManager.Instance.LoadQuestManager();
+            if (QuestManager.Instance != null)
+                QuestManager.Instance.LoadQuestManager();
             yield return null;
             if (PlayerNumController.Instance != null)
             {
-                PlayerNumController.Instance.currentMaxLight = 5.0f;
-                PlayerNumController.Instance.mModel.PlayerLight.Value = PlayerNumController.Instance.currentMaxLight;
+                PlayerNumController.Instance.LoadPlayerNums();
             }
 
             yield return fader.FadeIn(1.3f);

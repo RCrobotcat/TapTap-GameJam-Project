@@ -20,8 +20,20 @@ MonoBehaviour:
     questData: {fileID: 11400000, guid: 8a47ad55fedb74a4b8a7ab78cb14d98f, type: 2}
     dialogueOption:
     - text: "\u8FD9\u4E2A\u7ED1\u5E26\u53EF\u4EE5\u8BA9\u6211\u8FDB\u5165\u540E\u82B1\u56ED"
-      targetID: 
+      targetID: Piece02
       takeQuest: 1
+      transitToScene: 0
+      sceneName: 
+      getItem: 0
+      item: {fileID: 0}
+  - ID: Piece02
+    image: {fileID: -1312055961, guid: 0de99599abeff33488d5134d84f52f19, type: 3}
+    text: "\u9152\u4FDD: \u5662\u5662, \u539F\u6765\u5982\u6B64! \u591A\u8C22\u4F60\u7684\u5E2E\u5FD9! "
+    questData: {fileID: 11400000, guid: 8a47ad55fedb74a4b8a7ab78cb14d98f, type: 2}
+    dialogueOption:
+    - text: "\u5BA2\u6C14\u4E86"
+      targetID: 
+      takeQuest: 0
       transitToScene: 0
       sceneName: 
       getItem: 0
