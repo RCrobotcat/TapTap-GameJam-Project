@@ -12,6 +12,11 @@ public class bean : MonoBehaviour
     public float winGap;
     float timer;
 
+    private void Awake()
+    {
+        isRespawn = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "bean")//吃豆功能和计数功能
@@ -23,7 +28,7 @@ public class bean : MonoBehaviour
             {
                 BlackNum = BlackNum + 0.017f;
             }
-            count = count + 5f;
+            count = count + 4;
         }
     }
 
@@ -36,7 +41,7 @@ public class bean : MonoBehaviour
     bool isWin;
     public void Win()//获得游戏胜利
     {
-        if (BeanNum >= 30)
+        if (BeanNum >= 20)
         {
             winTip.SetActive(true);
             if (timer < winGap)
@@ -54,6 +59,7 @@ public class bean : MonoBehaviour
         }
     }
 
+    bool isRespawn;
     public void decreasetime()
     {
         //time.text = count.ToString();
@@ -62,10 +68,11 @@ public class bean : MonoBehaviour
             count -= Time.deltaTime;
             time.text = count.ToString("0.00");
         }
-        else if (count <= 0)
+        else if (count <= 0 && !isRespawn)
         {
             Debug.Log("you lose!");
-            SceneController.Instance.HandleTransitionToScene("Pac-Man-Map");
+            isRespawn = true;
+            SceneController.Instance.HandleRespawnPacMan("Pac-Man-Map");
             //Time.timeScale = 0;
             //游戏失败结束
         }

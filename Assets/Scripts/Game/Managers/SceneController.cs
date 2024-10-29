@@ -101,9 +101,34 @@ public class SceneController : Singleton<SceneController>
         StartCoroutine(Respawn(sceneName));
     }
 
+    public void HandleRespawnPacMan(string sceneName)
+    {
+        StartCoroutine(RespawnPacMan(sceneName));
+    }
+
+    IEnumerator RespawnPacMan(string sceneName)
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+
+        yield return fade.FadeOut(0.7f);
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        yield return fade.FadeIn(0.5f);
+        yield break;
+    }
+
     public void HandleRespawnGoHundred(string sceneName)
     {
         StartCoroutine(RespawnGoHundred(sceneName));
+    }
+
+    IEnumerator RespawnGoHundred(string sceneName)
+    {
+        SceneFader fade = Instantiate(SceneFaderPrefab);
+
+        yield return fade.FadeOut(0.7f);
+        yield return SceneManager.LoadSceneAsync(sceneName);
+        yield return fade.FadeIn(0.5f);
+        yield break;
     }
 
     public void HandleLoadTutorialScene()
@@ -232,16 +257,6 @@ public class SceneController : Singleton<SceneController>
             yield return fader.FadeIn(1.3f);
             yield break;
         }
-    }
-
-    IEnumerator RespawnGoHundred(string sceneName)
-    {
-        SceneFader fade = Instantiate(SceneFaderPrefab);
-
-        yield return fade.FadeOut(0.7f);
-        yield return SceneManager.LoadSceneAsync(sceneName);
-        yield return fade.FadeIn(0.5f);
-        yield break;
     }
 
     // Find the destination entrance in the new scene
