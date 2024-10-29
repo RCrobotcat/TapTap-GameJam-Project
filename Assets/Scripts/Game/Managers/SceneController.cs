@@ -116,6 +116,17 @@ public class SceneController : Singleton<SceneController>
         SceneFader fade = Instantiate(SceneFaderPrefab);
         yield return StartCoroutine(fade.FadeOut(1.2f));
         yield return SceneManager.LoadSceneAsync("TutorialScene");
+        if (QuestManager.Instance != null)
+            QuestManager.Instance.LoadQuestManager();
+        if (InventoryManager.Instance != null)
+            InventoryManager.Instance.LoadData();
+        yield return null;
+        if (PlayerNumController.Instance != null)
+        {
+            PlayerNumController.Instance.currentMaxLight = 5f;
+            PlayerNumController.Instance.mModel.PlayerLight.Value = PlayerNumController.Instance.currentMaxLight;
+            PlayerNumController.Instance.UpdateLightBar();
+        }
         yield return StartCoroutine(fade.FadeIn(1.2f));
         yield break;
     }

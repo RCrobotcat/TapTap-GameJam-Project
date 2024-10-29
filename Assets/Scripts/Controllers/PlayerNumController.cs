@@ -107,7 +107,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         StaminaSlider.DOFillAmount(SliderPercent, 0.3f);
     }
 
-    void UpdateLightBar()
+    public void UpdateLightBar()
     {
         float SliderPercent = (float)mModel.PlayerLight.Value / currentMaxLight;
         LightSlider.DOFillAmount(SliderPercent, 0.3f);
@@ -160,6 +160,7 @@ public class PlayerNumController : Singleton<PlayerNumController>, IController
         var Storage = this.GetUtility<Istorage>();
         currentMaxLight = Storage.LoadPlayerNums("PlayerMaxLight");
         mModel.PlayerLight.Value = Storage.LoadPlayerNums("PlayerLight");
+        UpdateLightBar();
     }
     #endregion
 

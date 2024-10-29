@@ -18,14 +18,6 @@ public class AudioManager : Singleton<AudioManager>
         base.Awake();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
-
     // Update is called once per frame
     public void PlaySfx(AudioClip clip)//音效播放调用方法
     {
