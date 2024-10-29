@@ -2177,6 +2177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1714262689}
   - component: {fileID: 1714262690}
+  - component: {fileID: 1714262691}
   m_Layer: 5
   m_Name: MenuPanel
   m_TagString: Untagged
@@ -2223,6 +2224,20 @@ MonoBehaviour:
   basicWeapon: {fileID: 11400000, guid: 3a44c371b066c41428ec4d530ca23714, type: 2}
   rageWeapon: {fileID: 11400000, guid: a0856015345271b44995a808f4191d40, type: 2}
   esc: {fileID: 1125237401839115326}
+--- !u!114 &1714262691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714262688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db25e5d504771a44acefdc38459bd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuList: {fileID: 0}
+  bgm: {fileID: 0}
 --- !u!1 &1904400766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,9 +3341,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1714262691}
         m_TargetAssemblyTypeName: ESC, Assembly-CSharp
-        m_MethodName: full_screen
+        m_MethodName: FullScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5396,7 +5411,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1714262691}
         m_TargetAssemblyTypeName: ESC, Assembly-CSharp
         m_MethodName: Window
         m_Mode: 1
