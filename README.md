@@ -1,6 +1,8 @@
 # TapTap-GameJam-Project
 TapTapGameJam_Project: **"Alight By Sins"**
-(Spent 20 days to make, by Unity3D.)
+(Spent 20 days to make, by Unity3D.)  
+**Game Homepage:**  
+https://www.taptap.cn/app/725656
 
 # In Game Pictures:
 ![In Game Pictures 1](https://github.com/RCrobotcat/TapTap-GameJam-Project/blob/main/GamePics/1.png)
