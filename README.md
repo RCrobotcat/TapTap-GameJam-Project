@@ -1,6 +1,6 @@
 # TapTap-GameJam-Project
 TapTapGameJam_Project: **"Alight By Sins"**
-(Spent 20 days to make, by Unity3D.)  
+(Spent 20 days to make, by Unity3D. About 15min playing time.)  
 **Game Homepage:**  
 https://www.taptap.cn/app/725656
 
